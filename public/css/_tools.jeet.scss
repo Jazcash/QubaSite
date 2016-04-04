@@ -1,0 +1,71 @@
+////
+/// @group layout
+/// @author Jeet
+////
+
+/// Create a column
+/// @param {Ratio} $ratios - the ratio
+/// @param {String}  $offset - the offset
+/// @param {String}  $cycle - specify number of items in a row
+/// @param {String}  $uncycle - unset the cycle
+/// @param {String}  $gutter - set the gutter
+/// @example @include col(1/4, $cycle: 4);
+/// @example @include col(1/4, $cycle: 2, $uncycle: 4);
+/// @example @include col(1/2, $offset: 1);
+@mixin col() {
+}
+
+/// Same as col(), but without a gutter
+/// @param {Ratio} $ratios - the ratio
+/// @param {String}  $offset - the offset
+/// @example @include span(1/2);
+@mixin span() {
+}
+
+/// Shift cols, handy for source ordering
+/// @param {Ratio} $ratios - the ratio
+/// @param {String} $col_or_span - specify if its a col() or span()
+/// @param {String}  $gutter - set the gutter
+/// @example @include shift(-2/12, $col_or_span: span);
+@mixin shift() {
+}
+
+/// Disable source ordering
+/// @example @include unshift();
+@mixin unshift() {
+}
+
+/// Edit mode assigns a light gray, semi-transparent, background to every element on the page.
+/// @example @include edit();
+@mixin edit() {
+}
+
+/// This is a shortcut to easily center containers. The pad variable sets padding on the left and right.
+/// @param {String} $max_width - set the width of the container
+/// @param {String} $pad - set the padding
+/// @example @include center();
+/// @example @include center(1080px, 10px);
+@mixin center() {
+}
+
+/// A helper mixin to "stack" elements on top of each other. Useful for mobile views. Accepts padding and/or text alignment.
+/// @param {String} $pad - set the padding
+/// @param {String} $align - text align
+/// @example @include stack();
+/// @example @include stack(10px, center);
+@mixin stack() {
+}
+
+/// Disables stack()
+/// @example @include unstack();
+@mixin unstack() {
+}
+
+/// Clearfix
+/// @example @include cf();
+@mixin cf() {
+}
+
+@import 'jeet/_settings';
+@import 'jeet/_functions';
+@import 'jeet/_grid';

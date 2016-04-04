@@ -1,0 +1,13 @@
+/*------------------------------------*\
+	Breadcrumb
+\*------------------------------------*/
+
+.breadcrumb {
+	margin: $spacing-small 0;
+	color: #ccc;
+}
+
+.breadcrumb span {
+	font-weight: bold;
+	color: $font-color;
+}

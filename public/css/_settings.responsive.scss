@@ -1,0 +1,15 @@
+/*------------------------------------*\
+	Responsive
+\*------------------------------------*/
+
+$break-xs: 400px;
+$break-s: 550px;
+$break-m: 750px;
+$break-l: 1000px;
+$break-xl: 1200px;
+
+/* Default gutter (%) for Jeet */
+$jeet-gutter: 2;
+
+/* Default max-width for Jeet when using with @include center(); */
+$jeet-max-width: $break-xl;

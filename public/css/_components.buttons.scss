@@ -1,0 +1,61 @@
+/*------------------------------------*\
+	Buttons
+\*------------------------------------*/
+
+.btn {
+	display: inline-block;
+	padding: $spacing-small;
+	border-color: $primary;
+	background: $primary;
+	color: #fff;
+	@include transition(background 0.2s linear);
+
+	&:hover {
+		background: darken($primary, 10%);
+		text-decoration: none;
+	}
+}
+
+
+
+/**
+ * Button types
+ */
+.btn {
+	&:hover {
+		background: $primary!important;
+	}
+}
+
+.btn--info {
+	border-color: lighten($info, 30%);
+	background: lighten($info, 40%);
+	color: $info;
+
+	&:hover {
+		background: lighten($info, 30%)!important;
+		color: darken($info, 30%);
+	}
+}
+
+.btn--success {
+	border-color: lighten($success, 40%);
+	background: lighten($success, 50%);
+	color: $success;
+
+	&:hover {
+		background: lighten($success, 40%)!important;
+		color: darken($success, 30%);
+	}
+}
+
+.btn--warning {
+	border-color: lighten($warning, 30%);
+	background: lighten($warning, 40%);
+	color: $warning;
+
+	&:hover {
+		background: lighten($warning, 30%)!important;
+		color: darken($warning, 30%);
+	}
+}

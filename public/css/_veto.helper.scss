@@ -1,0 +1,82 @@
+/*------------------------------------*\
+	Helper classes
+\*------------------------------------*/
+
+
+
+/**
+ * Type
+ */
+.bold			{ font-weight: bold!important; }
+.semibold		{ font-weight: 600!important; }
+.regular		{ font-weight: normal!important; }
+.light			{ font-weight: 300!important; }
+.italic			{ font-style: italic!important; }
+.caps			{ text-transform: uppercase!important; }
+.left-align		{ text-align: left!important; }
+.center			{ text-align: center!important; }
+.right-align	{ text-align: right!important; }
+
+
+
+/**
+ * Floats
+ */
+.left	{ float: left!important; }
+.right	{ float: right!important; }
+
+
+
+/**
+ * Margin
+ */
+.m0		{ margin: 0!important; }
+.mt0	{ margin-top: 0!important; }
+.mr0	{ margin-right: 0!important; }
+.mb0	{ margin-bottom: 0!important; }
+.ml0	{ margin-left: 0!important; }
+
+.m1		{ margin: $spacing-small!important; }
+.mt1	{ margin-top: $spacing-small!important; }
+.mr1	{ margin-right: $spacing-small!important; }
+.mb1	{ margin-bottom: $spacing-small!important; }
+.ml1	{ margin-left: $spacing-small!important; }
+
+.m2		{ margin: $spacing!important; }
+.mt2	{ margin-top: $spacing!important; }
+.mr2	{ margin-right: $spacing!important; }
+.mb2	{ margin-bottom: $spacing!important; }
+.ml2	{ margin-left: $spacing!important; }
+
+.m3		{ margin: $spacing-large!important; }
+.mt3	{ margin-top: $spacing-large!important; }
+.mr3	{ margin-right: $spacing-large!important; }
+.mb3	{ margin-bottom: $spacing-large!important; }
+.ml3	{ margin-left: $spacing-large!important; }
+
+.mxn1	{ margin-left: $spacing-small!important; margin-right: $spacing-small!important; }
+.mxn2	{ margin-left: $spacing!important; margin-right: $spacing!important; }
+.mxn3	{ margin-left: $spacing-large!important; margin-right: $spacing-large!important; }
+
+
+
+/**
+ * Padding
+ */
+.p0		{ padding: 0!important; }
+.pt0	{ padding-top: 0!important; }
+.pr0	{ padding-right: 0!important; }
+.pb0	{ padding-bottom: 0!important; }
+.pl0	{ padding-left: 0!important; }
+
+.p1		{ padding: $spacing-small!important; }
+.py1	{ padding-top: $spacing-small!important; padding-bottom: $spacing-small!important; }
+.px1	{ padding-left: $spacing-small!important; padding-right: $spacing-small!important; }
+
+.p2		{ padding: $spacing!important; }
+.py2	{ padding-top: $spacing!important; padding-bottom: $spacing!important; }
+.px2	{ padding-left: $spacing!important; padding-right: $spacing!important; }
+
+.p3		{ padding: $spacing-large!important; }
+.py3	{ padding-top: $spacing-large!important; padding-bottom: $spacing-large!important; }
+.px3	{ padding-left: $spacing-large!important; padding-right: $spacing-large!important; }

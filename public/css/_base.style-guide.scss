@@ -1,0 +1,34 @@
+/*------------------------------------*\
+	Style guide
+\*------------------------------------*/
+
+.swatch {
+	height: 160px;
+	display: table;
+	width: 100%;
+	margin-bottom: $primary-font;
+}
+
+.swatch__meta {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	font-family: $alt-font;
+	@include font-size(14px);
+	color: #fff;
+}
+
+.swatch__hex {
+	display: block;
+	font-family: $primary-font;
+}
+
+
+
+/**
+ * Colours
+ */
+.swatch--primary { background: $primary; }
+.swatch--secondary { background: $secondary; }
+.swatch--greentea { background: $greentea; }
+.swatch--ripe-orange { background: $ripe-orange; }

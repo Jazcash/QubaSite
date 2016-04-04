@@ -1,0 +1,27 @@
+/*------------------------------------*\
+	Alerts
+\*------------------------------------*/
+
+.alert {
+	margin: 0 0 $spacing;
+	padding: $spacing;
+	background: $primary;
+	color: darken($primary, 60%);
+	border-radius: $border-radius;
+	-webkit-font-smoothing: antialiased;
+}
+
+.alert--info {
+	background: lighten($info, 50%);
+	color: $info;
+}
+
+.alert--success {
+	background: lighten($success, 50%);
+	color: $success;
+}
+
+.alert--warning {
+	background: lighten($warning, 40%);
+	color: $warning;
+}

@@ -1,0 +1,120 @@
+/*------------------------------------*\
+	Typography
+\*------------------------------------*/
+
+p {
+	margin: 0 0 $spacing;
+}
+
+p.lead {
+	font-size: 120%;
+}
+
+
+
+/**
+ * Headings 1–6
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $primary-font;
+    color: $heading-color;
+	font-weight: 600;
+    text-rendering: optimizelegibility;
+    margin: $spacing-large 0 $spacing;
+}
+
+h1, .alpha {
+	@include font-size($h1-size);
+}
+
+h2, .bravo {
+	@include font-size($h2-size);
+}
+
+h3, .charlie {
+	@include font-size($h3-size);
+}
+
+h4, .delta {
+	@include font-size($h4-size);
+}
+
+h5, .echo {
+	@include font-size($h5-size);
+}
+
+h6, .foxtrot {
+	@include font-size($h6-size);
+}
+
+
+
+/**
+ * Blockquote
+ */
+blockquote {
+	margin: 0 0 $spacing;
+	padding: 10px;
+	border-left: 4px solid #eeeeee;
+}
+
+blockquote footer {
+	color: #999;
+}
+
+
+
+/**
+ * Ordered list
+ */
+ol {
+	padding-left: 24px;
+}
+
+
+/**
+ * Unordered list
+ */
+ul {
+	padding-left: 24px;
+}
+
+
+
+/**
+ * Definition list
+ */
+dl {
+	dt {
+		margin-top: 1em;
+		font-weight: bold;
+	}
+	dd {
+		margin-left: 0px;
+	}
+}
+
+
+
+/**
+ * Horizontal rule
+ */
+hr {
+	margin-bottom: $spacing - 1px;
+	border: none;
+	border-bottom: 1px solid #ccc;
+}
+
+
+
+/**
+ * Horizontal rule
+ */
+mark {
+	background-color: #fff9d9;
+}
