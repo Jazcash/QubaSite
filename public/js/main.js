@@ -56,7 +56,7 @@ $(window).load(function(){
 		    $('.hp-our-work').height($('.overlay').outerHeight() + $('.underlay').height(), 500);
 
 		    if (($('.overlay').offset().top <= (currentScroll + $(".block--hp-dexterity").outerHeight())) &&
-		        !($('.block--hp-our-partners').offset().top <= (currentScroll))) {
+		        !($('.underlay').offset().top + $('.underlay').outerHeight() <= (currentScroll))) {
 		        $('.underlay').addClass('show');
 		    } else {
 		        $('.underlay').removeClass('show');
