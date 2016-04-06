@@ -281,6 +281,9 @@ section{
 		flex-wrap: wrap;
 		li{
 			width: 33.33%;
+			@include breakpoint(m){
+				width: 50%;
+			}
 			a{
 				img{
 
