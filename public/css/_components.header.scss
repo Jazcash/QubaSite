@@ -10,7 +10,17 @@ header{
 	@include responsive(padding, 1.5);
 	margin-top: $extra-small;
 	.logo{
+		position: relative;
 		align-self: center;
+		&:before{
+			content: "";
+			position: absolute;
+			width: 10px;
+			height: 10px;
+			background: red;
+			left: 0;
+			top: 0;
+		}
 	}
 	nav{
 		display: flex;

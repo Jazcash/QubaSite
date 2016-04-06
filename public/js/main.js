@@ -44,33 +44,33 @@ $(window).load(function(){
 /*
 	OUR WORK OVERLAY/UNDERLAY - START
 */
-$(function(){
-	$('.hp-our-work').height($('.overlay').outerHeight() + $('.underlay').height(), 500);
-});
+function updateParallax(currentScroll){
+	if ($('.hp-our-work').length) {
+	    $('.hp-our-work').height($('.overlay').outerHeight() + $('.underlay').height(), 500);
+
+	    if (($('.overlay').offset().top <= (currentScroll + $(".block--hp-dexterity").outerHeight())) &&
+	        !($('.underlay').offset().top + $('.underlay').outerHeight() <= (currentScroll))) {
+	        $('.underlay').addClass('show');
+	    } else {
+	        $('.underlay').removeClass('show');
+	    };
+
+	    var _overlay = $('.overlay');
+
+	    if (!(($('.overlay').offset().top + _overlay.find('img').outerHeight()) >= (currentScroll))) {
+	        $('.underlay').addClass('return-scroll');
+	        $('.underlay').addClass('show');
+	    } else {
+	        $('.underlay').removeClass('return-scroll');
+	    };
+	}
+}
 
 $(window).load(function(){
+	updateParallax($(this).scrollTop());
+
 	$(window).on('scroll touchmove', function(event){
-		var currentScroll = $(this).scrollTop();
-
-		if ($('.hp-our-work').length) {
-		    $('.hp-our-work').height($('.overlay').outerHeight() + $('.underlay').height(), 500);
-
-		    if (($('.overlay').offset().top <= (currentScroll + $(".block--hp-dexterity").outerHeight())) &&
-		        !($('.underlay').offset().top + $('.underlay').outerHeight() <= (currentScroll))) {
-		        $('.underlay').addClass('show');
-		    } else {
-		        $('.underlay').removeClass('show');
-		    };
-
-		    var _overlay = $('.overlay');
-
-		    if (!(($('.overlay').offset().top + _overlay.find('img').outerHeight()) >= (currentScroll))) {
-		        $('.underlay').addClass('return-scroll');
-		        $('.underlay').addClass('show');
-		    } else {
-		        $('.underlay').removeClass('return-scroll');
-		    };
-		}
+		updateParallax($(this).scrollTop());
 	});
 });
 /*
