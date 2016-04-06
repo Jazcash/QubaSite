@@ -2,6 +2,46 @@
 	Header
 \*------------------------------------*/
 
-[role=banner] {
-    text-align: center;
+header{
+	width: 100%;
+	display: flex;
+	align-self: flex-start;
+	flex-direction: column;
+	@include responsive(padding, 1.5);
+	margin-top: $extra-small;
+	.logo{
+		align-self: center;
+	}
+	nav{
+		display: flex;
+		justify-content: center;
+		margin-top: $medium;
+		ul{
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-wrap: wrap;
+			flex-align: center;
+			li{
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+				margin: 5px auto;
+				a{
+					@include responsive(padding-left, 0.5);
+					@include responsive(padding-right, 0.5);
+					color: #fff;
+					font-size: $small;
+					@include breakpoint(s){
+						font-size: $extra-small;
+					}
+					&:hover{
+						color: red;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
 }

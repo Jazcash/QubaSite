@@ -3,16 +3,19 @@ var gulp = require('gulp'),
 	plumber = require('gulp-plumber'),
 	livereload = require('gulp-livereload'),
 	sass = require('gulp-sass'),
-	autoprefixer = require('gulp-autoprefixer');
+	autoprefixer = require('gulp-autoprefixer'),
+	sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('sass', function () {
 	gulp.src('./public/css/*.scss')
+		.pipe(sourcemaps.init())
 		.pipe(plumber())
 		.pipe(sass())
 		.pipe(autoprefixer({
 			browsers: ['last 2 versions'],
 			cascade: false
 		}))
+		.pipe(sourcemaps.write('../maps'))
 		.pipe(gulp.dest('./public/css'))
 		.pipe(livereload());
 });

@@ -25,7 +25,8 @@ h6 {
     color: $heading-color;
 	font-weight: 600;
     text-rendering: optimizelegibility;
-    margin: $spacing-large 0 $spacing;
+    margin: 0;
+    padding: 0;
 }
 
 h1, .alpha {
@@ -98,18 +99,6 @@ dl {
 		margin-left: 0px;
 	}
 }
-
-
-
-/**
- * Horizontal rule
- */
-hr {
-	margin-bottom: $spacing - 1px;
-	border: none;
-	border-bottom: 1px solid #ccc;
-}
-
 
 
 /**
