@@ -2,12 +2,16 @@ section{
 	h2{
 		@include responsive(font-size, 3);
 	}
+	hr{
+		height: 6px;
+		margin-bottom: 4vh;
+		@include responsive(width, 5);
+	}
 	p{
 		@include responsive(font-size, 1.1);
 	}
 }
 
-/* HOMEPAGE - FIRST PANEL */
 .block--hp-first{
 	position: relative;
 	height: 100vh;
@@ -16,6 +20,7 @@ section{
 	justify-content: center;
 	flex-direction: column;
 	overflow: hidden;
+	background-color: rgba(90, 34, 38, 0.5);
 	h1{
 		@include responsive(font-size, 4);
 		color: $quba-red;
@@ -41,18 +46,12 @@ section{
 		min-height: 100%;
 		transform: translate(-50%,-50%);
 		z-index: -1;
-		opacity: 0.4;
 	}
 }
 
 .block{
 	position: relative;
-	@include responsive(padding, 3);
-	hr{
-		height: 6px;
-		margin-bottom: 4vh;
-		@include responsive(width, 5);
-	}
+	@include responsive(padding, 2.9);
 	&--hp-current-clients{
 		background: #c82431;
 		h2{
@@ -82,18 +81,27 @@ section{
 		}
 	}
 	&--hp-dexterity{
-		background-color: rgba(113,82,60, 0.6);
-		& > * {
-			width: 60%;
+		z-index: 10;
+		&:after{
+			position: absolute;
+			content: "";
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			background-color: rgba(113,82,60, 0.5);
 		}
 		h2{
 			color: #fd9567;
 			margin-bottom: 20vh;
+			width: 60%;
 		}
 		hr{
 			background: #fd9567;
 		}
 		p{
+			width: 60%;
 			color: #fd9567;
 		}
 		@include breakpoint(s){
@@ -114,12 +122,17 @@ section{
 				width: 100%;
 				background-size: cover;
 				z-index: -1;
-				opacity: 0.5;
+				opacity: 1;
 			}
 		}
 	}
+	&--hp-transparent{
+		height: 100vh;
+	}
 	&--hp-our-partners{
 		background: #5d6265;
+		position: relative;
+		overflow: hidden;
 		h2{
 			color: #94eef9;
 		}
@@ -144,18 +157,18 @@ section{
 		}
 	}
 	&--hp-commercial-ability{
-		& > * {
-			width: 60%;
-		}
+		overflow: hidden;
 		h2{
 			color: #dfa4d0;
 			margin-bottom: 20vh;
+			width: 60%;
 		}
 		hr{
 			background: #dfa4d0;
 		}
 		p{
 			color: #dfa4d0;
+			width: 60%;
 		}
 		@include breakpoint(s){
 			h2{
@@ -181,17 +194,86 @@ section{
 		background: #fff;
 		display: flex;
 		justify-content: space-between;
-		ul{
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
+		//flex-wrap: wrap;
+		color: #3e0e1a;
+		& > div{
 			display: flex;
-			flex-wrap: wrap;
+			flex-direction: column;
+		}
+		h2{
+			color: #3e0e1a;
+		}
+		hr{
+			background: #3e0e1a;
+		}
+		span{
+			@include responsive(font-size, 1.1);
+			@include breakpoint(s){ font-size: $extra-small; }
+			@include responsive(margin-bottom, 1);
+			color: #3e0e1a;
+		}
+		a{
+			color: #3e0e1a;
+			border-bottom: 2px solid #3e0e1a;
+			&:hover{
+				text-decoration: none;
+			}
+		}
+		.footer-right{
+			display: flex;
+			text-align: right;
+			.social-icons{
+				@include responsive(margin-bottom, 1);
+				@include responsive(font-size, 1.5);
+				@include breakpoint(s){ font-size: $extra-small; }
+				a{
+					border: none;
+				}
+			}
+			.footer-logos{
+				margin-top: auto;
+				img{
+					@include responsive(max-height, 2);
+					@include responsive(margin-left, 0.5);
+				}
+			}
 		}
 	}
 }
 
 .hp-our-work{
+	position: relative;
+	width: 100vw;
+	width: 100%;
+	background: #5d6265;
+	overflow: hidden;
+	z-index: 2;
+	text-align: center;
+
+	.overlay{
+		position: relative;
+		img{
+			max-width: 100%;
+			width: 100%;
+			height: auto;
+			vertical-align: middle;
+			z-index: 10;
+		}
+	}
+	.underlay{
+		z-index: -1;
+		position: fixed;
+		left: 0;
+		top: 100vh;
+		width: 100vw;
+	}
+	.show{
+		top: 0;
+	}
+	.return-scroll{
+		position: relative;
+	}
+
 	ul{
 		margin: 0;
 		padding: 0;

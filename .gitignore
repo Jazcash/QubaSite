@@ -3,3 +3,4 @@ public/components
 .sass-cache
 /public/css/style.css
 /config.json
+/public/css/prettify-theme.css
