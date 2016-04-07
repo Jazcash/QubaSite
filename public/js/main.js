@@ -1,3 +1,24 @@
+var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent));
+
+/*
+	LOAD VIDEOS ON DESKTOP ONLY - START
+*/
+$(function(){
+	if (isMobile){
+		$(".block--hp-first").css("background-image", "url('/img/agility-frame.jpg')")
+		$(".block--hp-commercial-ability").css("background-image", "url('/img/commercial-frame.jpg')")
+	} else {
+		$("#agility-video source").eq(0).attr("src", "/video/agility.mp4");
+		$("#agility-video").eq(0).load();
+
+		$("#commercial-video source").eq(0).attr("src", "/video/commercial.mp4");
+		$("#commercial-video").eq(0).load();
+	}
+});
+/*
+	LOAD VIDEOS ON DESKTOP ONLY - END
+*/
+
 /*
 	DEXTERITY FRAMES - START
 */
@@ -44,30 +65,34 @@ $(window).load(function(){
 /*
 	OUR WORK OVERLAY/UNDERLAY - START
 */
-function updateParallax(currentScroll){
-	if ($('.hp-our-work').length) {
-	    $('.hp-our-work').height($('.overlay').outerHeight() + $('.underlay').height(), 500);
+var $content = $(".block--hp-our-work");
+var $contentAbove = $(".block--hp-dexterity");
+var $overlay = $(".overlay");
+var $underlay = $(".underlay");
 
-	    if (($('.overlay').offset().top <= (currentScroll + $(".block--hp-dexterity").outerHeight())) &&
-	        !($('.underlay').offset().top + $('.underlay').outerHeight() <= (currentScroll))) {
-	        $('.underlay').addClass('show');
+function updateParallax(currentScroll){
+	if ($content.length) {
+	    $content.height($overlay.outerHeight() + $underlay.height(), 500);
+
+	    if (($overlay.offset().top <= (currentScroll + $contentAbove.outerHeight())) &&
+	        !($underlay.offset().top + $underlay.outerHeight() <= (currentScroll))) {
+	        $underlay.addClass('show');
 	    } else {
-	        $('.underlay').removeClass('show');
+	        $underlay.removeClass('show');
 	    };
 
-	    var _overlay = $('.overlay');
-
-	    if (!(($('.overlay').offset().top + _overlay.find('img').outerHeight()) >= (currentScroll))) {
-	        $('.underlay').addClass('return-scroll');
-	        $('.underlay').addClass('show');
+	    if (!(($overlay.offset().top + $overlay.find('img').outerHeight()) >= (currentScroll))) {
+	        $underlay.addClass('return-scroll');
+	        $underlay.addClass('show');
 	    } else {
-	        $('.underlay').removeClass('return-scroll');
+	        $underlay.removeClass('return-scroll');
 	    };
 	}
 }
 
 $(window).load(function(){
 	updateParallax($(this).scrollTop());
+	$(".block--hp-our-partners").css("display", "flex");
 
 	$(window).on('scroll touchmove', function(event){
 		updateParallax($(this).scrollTop());

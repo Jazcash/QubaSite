@@ -1,4 +1,8 @@
 section{
+	h1{
+		@include responsive(font-size, 4);
+		color: $quba-red;
+	}
 	h2{
 		@include responsive(font-size, 3);
 	}
@@ -13,65 +17,62 @@ section{
 	}
 }
 
-.block--hp-first{
-	position: relative;
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	overflow: hidden;
-	background-color: rgba(70, 15, 19, 0.7);
-	&:before{
-		content: "";
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		background-color: rgba(70, 15, 19, 1);
-		z-index: -1;
-	}
-	h1{
-		@include responsive(font-size, 4);
-		color: $quba-red;
-	}
-	hr{
-		background: $quba-red;
-		height: 6px;
-		@include responsive(width, 5);
-		margin-top: 2vh;
-		margin-bottom: 4vh;
-	}
-	p{
-		margin: 0;
-		color: $quba-red;
-		@include breakpoint(s){
-			font-size: $extra-small;
-		}
-	}
-	video{
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		min-width: 100%;
-		min-height: 100%;
-		transform: translate(-50%,-50%);
-		z-index: -1;
-	}
-}
-
 .block{
 	position: relative;
 	@include responsive(padding, 2.9);
+	.block__centre{
+		text-align: center;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		width: 65%;
+	}
+	&--hp-first{
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		overflow: hidden;
+		padding: 0;
+		background-color: rgba(70, 15, 19, 0.7);
+		background-size: cover;
+		background-position: center center;
+		background-repeat: none;
+		hr{
+			background: $quba-red;
+			height: 6px;
+			@include responsive(width, 5);
+			margin-top: 2vh;
+			margin-bottom: 4vh;
+		}
+		p{
+			margin: 0;
+			color: $quba-red;
+			@include breakpoint(s){
+				font-size: $extra-small;
+			}
+		}
+		video{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			min-width: 100%;
+			min-height: 100%;
+			transform: translate(-50%,-50%);
+			z-index: -2;
+		}
+	}
 	&--hp-current-clients{
 		background: #c82431;
 		h2{
-			color: #feef9d;
+			color: $cream;
 			@include responsive(margin-bottom, 1);
 		}
 		hr{
-			background: #feef9d;
+			background: $cream;
 		}
 		ul{
 			list-style-type: none;
@@ -108,16 +109,16 @@ section{
 			background-color: rgba(113,82,60, 0.7);
 		}
 		h2{
-			color: #fd9567;
+			color: $beige;
 			@include responsive(margin-bottom, 7.5);
 			width: 60%;
 		}
 		hr{
-			background: #fd9567;
+			background: $beige;
 		}
 		p{
 			width: 60%;
-			color: #fd9567;
+			color: $beige;
 		}
 		@include breakpoint(s){
 			h2{
@@ -141,15 +142,96 @@ section{
 			}
 		}
 	}
-	&--hp-transparent{
-		height: 100vh;
+	&--hp-our-work{
+		width: 100%;
+		background: $nevada;
+		overflow: hidden;
+		z-index: 2;
+		text-align: center;
+		padding: 0;
+		.overlay{
+			position: relative;
+			img{
+				max-width: 100%;
+				width: 100%;
+				height: auto;
+				vertical-align: middle;
+				z-index: 10;
+			}
+		}
+		.underlay{
+			z-index: -1;
+			position: fixed;
+			left: 0;
+			top: 100vh;
+			width: 100vw;
+		}
+		.show{
+			top: 0;
+		}
+		.return-scroll{
+			position: relative;
+		}
+		ul{
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-wrap: wrap;
+			li{
+				position: relative;
+				width: 33.33%;
+				@include breakpoint(m){
+					width: 50%;
+				}
+				a{
+					.tile-centre{
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						left: 0;
+						top: 0;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						flex-direction: column;
+						z-index: 2;
+						h3{
+							color: #fff;
+							margin-bottom: 10px;
+						}
+						p{
+							color: #fff;
+							font-family: $primary-font-light;
+							font-style: italic;
+							font-size: $extra-small / 1.3;
+						}
+					}
+				}
+				&:hover{
+					&:after{
+						content: "";
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						background: rgba(105, 232, 187, 0.9);
+						z-index: 1;
+					}
+					a .tile-centre h3,
+					a .tile-centre p{
+						color: #333;
+					}
+				}
+			}
+		}
 	}
 	&--hp-our-partners-gap{
 		height: 60vh;
 		padding: 0;
 	}
 	&--hp-our-partners{
-		background: #5d6265;
+		background: $nevada;
 		position: fixed;
 		width: 100%;
 		height: 100vh;
@@ -161,12 +243,12 @@ section{
 		align-items: center;
 		justify-content: center;
 		h2{
-			color: #94eef9;
+			color: $anakiwa;
 			text-align: center;
 			@include responsive(margin-bottom, 1);
 		}
 		hr{
-			background: #94eef9;
+			background: $anakiwa;
 			margin: 0 auto;
 		}
 		ul{
@@ -187,26 +269,20 @@ section{
 	}
 	&--hp-commercial-ability{
 		overflow: hidden;
-		&:before{
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: #5A2226;
-			z-index: -1;
-		}
+		background-color: rgba(70, 15, 19, 0.7);
+		background-size: cover;
+		background-position: center center;
+		background-repeat: none;
 		h2{
-			color: #dfa4d0;
+			color: $light-orchid;
 			@include responsive(margin-bottom, 7.5);
 			width: 60%;
 		}
 		hr{
-			background: #dfa4d0;
+			background: $light-orchid;
 		}
 		p{
-			color: #dfa4d0;
+			color: $light-orchid;
 			width: 60%;
 		}
 		@include breakpoint(s){
@@ -226,33 +302,32 @@ section{
 			min-height: 100%;
 			transform: translate(-50%,-50%);
 			z-index: -1;
-			opacity: 0.2;
 		}
 	}
 	&--hp-contact{
 		background: #fff;
 		display: flex;
 		justify-content: space-between;
-		color: #3e0e1a;
+		color: $quba-red-dark;
 		& > div{
 			display: flex;
 			flex-direction: column;
 		}
 		h2{
-			color: #3e0e1a;
+			color: $quba-red-dark;
 		}
 		hr{
-			background: #3e0e1a;
+			background: $quba-red-dark;
 		}
 		span{
 			@include responsive(font-size, 1.1);
 			@include breakpoint(s){ font-size: $extra-small; }
 			@include responsive(margin-bottom, 1);
-			color: #3e0e1a;
+			color: $quba-red-dark;
 		}
 		a{
-			color: #3e0e1a;
-			border-bottom: 2px solid #3e0e1a;
+			color: $quba-red-dark;
+			border-bottom: 2px solid $quba-red-dark;
 			&:hover{
 				text-decoration: none;
 			}
@@ -277,98 +352,4 @@ section{
 			}
 		}
 	}
-}
-
-.hp-our-work{
-	position: relative;
-	width: 100%;
-	background: #5d6265;
-	overflow: hidden;
-	z-index: 2;
-	text-align: center;
-
-	.overlay{
-		position: relative;
-		img{
-			max-width: 100%;
-			width: 100%;
-			height: auto;
-			vertical-align: middle;
-			z-index: 10;
-		}
-	}
-	.underlay{
-		z-index: -1;
-		position: fixed;
-		left: 0;
-		top: 100vh;
-		width: 100vw;
-	}
-	.show{
-		top: 0;
-	}
-	.return-scroll{
-		position: relative;
-	}
-
-	ul{
-		margin: 0;
-		padding: 0;
-		display: flex;
-		flex-wrap: wrap;
-		li{
-			position: relative;
-			width: 33.33%;
-			@include breakpoint(m){
-				width: 50%;
-			}
-			a{
-				.tile-centre{
-					position: absolute;
-					width: 100%;
-					height: 100%;
-					left: 0;
-					top: 0;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					flex-direction: column;
-					z-index: 2;
-					h3{
-						color: #fff;
-					}
-					p{
-						color: #fff;
-						font-size: $extra-small;
-					}
-				}
-			}
-			&:hover{
-				&:after{
-					content: "";
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 100%;
-					height: 100%;
-					background: rgba(105, 232, 187, 0.8);
-					z-index: 1;
-				}
-				a .tile-centre h3,
-				a .tile-centre p{
-					color: #333;
-				}
-			}
-		}
-	}
-}
-
-.block__centre{
-	text-align: center;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	width: 65%;
 }

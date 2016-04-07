@@ -11,8 +11,8 @@
 - [ ] Discuss chevrons
 - [ ] Discuss burger menu
 - [ ] Discuss see more link on case studies
-- [ ] Setup colour variables
-- [ ] Swap videos for images on mobile
+- [x] Setup colour variables
+- [x] Swap videos for images on mobile
 - [ ] Make case studies text responsive
 - [ ] Look into social icons
 - [ ] Partner icons on two rows
