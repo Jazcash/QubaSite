@@ -92,7 +92,6 @@ function updateParallax(currentScroll){
 
 $(window).load(function(){
 	updateParallax($(this).scrollTop());
-	$(".block--hp-our-partners").css("display", "flex");
 
 	$(window).on('scroll touchmove', function(event){
 		updateParallax($(this).scrollTop());

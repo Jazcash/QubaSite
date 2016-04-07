@@ -15,4 +15,4 @@
 - [x] Swap videos for images on mobile
 - [ ] Make case studies text responsive
 - [ ] Look into social icons
-- [ ] Partner icons on two rows
+- [x] Partner icons on two rows
