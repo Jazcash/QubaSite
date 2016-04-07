@@ -4,16 +4,19 @@ section{
 		color: $quba-red;
 	}
 	h2{
-		@include responsive(font-size, 3);
+		@include responsive(font-size, 3.5);
 	}
 	hr{
 		margin: 0;
 		height: 6px;
-		margin-bottom: 4vh;
+		margin-bottom: 6vh;
 		@include responsive(width, 5);
+		text-align: left;
 	}
 	p{
+		margin: 0;
 		@include responsive(font-size, 1.1);
+		@include responsive(line-height, 1.35);
 	}
 }
 
@@ -28,6 +31,8 @@ section{
 		justify-content: center;
 		flex-direction: column;
 		width: 65%;
+		@include breakpoint(m){ width: 75%; }
+		@include breakpoint(s){ width: 85%; }
 	}
 	&--hp-first{
 		height: 100vh;
@@ -41,6 +46,16 @@ section{
 		background-size: cover;
 		background-position: center center;
 		background-repeat: none;
+		&:before{
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			background: rgba(70, 15, 19, 1);
+			z-index: -3;
+		}
 		hr{
 			background: $quba-red;
 			height: 6px;
@@ -54,6 +69,7 @@ section{
 			@include breakpoint(s){
 				font-size: $extra-small;
 			}
+			width: 100%;
 		}
 		video{
 			position: absolute;
@@ -66,7 +82,7 @@ section{
 		}
 	}
 	&--hp-current-clients{
-		background: #c82431;
+		background: $crimson;
 		h2{
 			color: $cream;
 			@include responsive(margin-bottom, 1);
@@ -88,9 +104,22 @@ section{
 					img{
 						@include responsive(max-height, 2.2);
 						@include responsive(margin, 1);
+						transition: opacity 0.3s ease;
 					}
 					img[src*='chatsworth']{
 						@include responsive(max-height, 3);
+					}
+				}
+			}
+			&:hover{
+				a{
+					img{
+						opacity: 0.5;
+					}
+					&:hover{
+						img{
+							opacity: 1;
+						}
 					}
 				}
 			}
@@ -98,6 +127,7 @@ section{
 	}
 	&--hp-dexterity{
 		z-index: 10;
+		background-color: rgba(113,82,60, 1);
 		&:after{
 			position: absolute;
 			content: "";
@@ -106,7 +136,7 @@ section{
 			top: 0;
 			left: 0;
 			z-index: -1;
-			background-color: rgba(113,82,60, 0.7);
+			background-color: rgba(113,82,60, 0.8);
 		}
 		h2{
 			color: $beige;
@@ -160,11 +190,9 @@ section{
 			}
 		}
 		.underlay{
-			z-index: -1;
 			position: fixed;
-			left: 0;
-			top: 100vh;
-			width: 100vw;
+			width: 100%;
+			z-index: -1;
 		}
 		.show{
 			top: 0;
@@ -195,32 +223,40 @@ section{
 						align-items: center;
 						flex-direction: column;
 						z-index: 2;
-						h3{
+						padding: $extra-small;
+						a, h3{
 							color: #fff;
 							margin-bottom: 10px;
+							@include responsive(font-size, 1);
+							@include breakpoint(m){ font-size: $small/1.2; }
+							font-family: $primary-font;
 						}
 						p{
+							line-height: $extra-small;
 							color: #fff;
 							font-family: $primary-font-light;
 							font-style: italic;
-							font-size: $extra-small / 1.3;
+							@include responsive(font-size, 0.5);
+							@include breakpoint(m){ font-size: $extra-small/1.2; }
 						}
 					}
 				}
-				&:hover{
-					&:after{
-						content: "";
-						position: absolute;
-						top: 0;
-						left: 0;
-						width: 100%;
-						height: 100%;
-						background: rgba(105, 232, 187, 0.9);
-						z-index: 1;
-					}
-					a .tile-centre h3,
-					a .tile-centre p{
-						color: #333;
+				&:not(.see-more){
+					&:hover{
+						&:after{
+							content: "";
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 100%;
+							background: rgba(105, 232, 187, 0.9);
+							z-index: 1;
+						}
+						a .tile-centre h3,
+						a .tile-centre p{
+							color: #333;
+						}
 					}
 				}
 			}
@@ -234,6 +270,7 @@ section{
 		background: $nevada;
 		position: fixed;
 		width: 100%;
+		max-width: 100%;
 		height: 100vh;
 		top: 0;
 		left: 0;
@@ -249,20 +286,20 @@ section{
 		}
 		hr{
 			background: $anakiwa;
-			margin: 0 auto;
+			margin-left: auto;
+			margin-right: auto;
 		}
 		ul{
 			list-style-type: none;
 			margin: 0;
 			padding: 0;
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
 			li{
-				margin: auto;
 				width: calc(100% * (1/4) - 10px - 1px);
 				text-align: center;
-				margin-top: $extra-small;
+				margin: auto;
+				@include responsive(margin-top, 0.7);
+				@include responsive(margin-bottom, 0.7);
+				display: inline-block;
 				@include breakpoint(l){
 					width: calc(100% * (1/3) - 10px - 1px);
 				}
@@ -338,9 +375,33 @@ section{
 		}
 		a{
 			color: $quba-red-dark;
-			border-bottom: 2px solid $quba-red-dark;
+			position: relative;
+			transition: 0.3s ease;
+			&:before{
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 3px;
+				left: 0;
+				bottom: -3px;
+				background: $quba-red-dark;
+			}
+			&:after{
+				content: "";
+				position: absolute;
+				width: 0;
+				height: 3px;
+				left: 0;
+				bottom: -3px;
+				background: $quba-red;
+				transition: 0.3s ease;
+			}
 			&:hover{
 				text-decoration: none;
+				color: $quba-red;
+				&:after{
+					width: 100%;
+				}
 			}
 		}
 		.footer-right{
@@ -350,8 +411,8 @@ section{
 				@include responsive(margin-bottom, 1);
 				@include responsive(font-size, 1.5);
 				@include breakpoint(s){ font-size: $extra-small; }
-				a{
-					border: none;
+				a:before{
+					background: #fff;
 				}
 			}
 			.footer-logos{

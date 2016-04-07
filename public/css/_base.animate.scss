@@ -1,0 +1,37 @@
+.hideUntilScroll{
+	opacity: 0;
+}
+
+.fadeInLeft{
+	animation-name: fadeInLeft;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+}
+
+@keyframes fadeInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.fadeInTop{
+	animation-name: fadeInTop;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+}
+
+@keyframes fadeInTop {
+	0% {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

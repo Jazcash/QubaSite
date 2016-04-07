@@ -1,6 +1,25 @@
 var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent));
 
 /*
+	FADE CONTENT IN ON SCROLL - START
+*/
+$(function(){
+	$(window).on('scroll touchmove', function(event) {
+		$(".hideUntilScroll").each(function(i){
+			var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+	        var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+	        if( bottom_of_window > bottom_of_object ){
+	            $(this).addClass("fadeInLeft");
+	        }
+		});
+	});
+});
+/*
+	FADE CONTENT IN ON SCROLL - END
+*/
+
+/*
 	LOAD VIDEOS ON DESKTOP ONLY - START
 */
 $(function(){
