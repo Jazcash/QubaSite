@@ -1,17 +1,5 @@
 <section class="block block--hp-first">
-	<header>
-		<img class="logo fadeInTop" src="/img/logo.png"/>
-		<nav>
-			<ul class="fadeInTop">
-				<li><a href="#">About Us</a></li>
-				<li><a href="#">Work</a></li>
-				<li><a href="#">Services</a></li>
-				<li><a href="#">Technology</a></li>
-				<li><a href="#">Blog</a></li>
-				<li><a href="#">Contact</a></li>
-			</ul>
-		</nav>
-	</header>
+	{{> header}}
 	<div class="block__centre">
 		<h1 class="fadeInLeft">This is digital agility.</h1>
 		<hr class="fadeInLeft" style="animation-delay: 0.7s;"/>
@@ -177,26 +165,4 @@
 	</div>
 </section>
 
-<section class="block block--hp-contact">
-	<div class="footer-left">
-		<h2>Get in touch.</h2>
-		<hr/>
-		<span><a href="#">Contact us</a></span>
-		<span><a href="#">Terms &amp; conditions</a></span>
-		<div>&copy; 2000 - 2016 Quba | Reg No: 4038459</div>
-	</div>
-	<div class="footer-right">
-		<div class="social-icons">
-			<a href="#"><i class="fa fa-facebook"></i></a>
-			<a href="#"><i class="fa fa-twitter"></i></a>
-			<a href="#"><i class="fa fa-linkedin"></i></a>
-			<a href="#"><i class="fa fa-instagram"></i></a>
-		</div>
-		<span class="phone">0114 279 7779</span>
-		<span><a href="#" class="email">hello@quba.co.uk</a></span>
-		<div class="footer-logos">
-			<img src="/img/logos/investors-in-people.png"/>
-			<img src="/img/logos/iso-9001.png"/>
-		</div>
-	</div>
-</section>
+{{> footer}}

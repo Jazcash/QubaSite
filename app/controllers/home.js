@@ -10,3 +10,9 @@ router.get("/", function(req, res, next) {
 		title: "Quba Site | Homepage",
 	});
 });
+
+router.get("/about", function(req, res, next) {
+	res.render("about", {
+		title: "Quba Site | About",
+	});
+});

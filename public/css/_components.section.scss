@@ -2,6 +2,7 @@ section{
 	h1{
 		@include responsive(font-size, 4);
 		color: $quba-red;
+		text-align: center;
 	}
 	h2{
 		@include responsive(font-size, 3.5);
@@ -26,6 +27,9 @@ section{
 .block{
 	position: relative;
 	@include responsive(padding, 2.9);
+	h2{
+		@include responsive(margin-bottom, 7.5);
+	}
 	.block__centre{
 		text-align: center;
 		height: 100%;
@@ -147,7 +151,6 @@ section{
 		}
 		h2{
 			color: $beige;
-			@include responsive(margin-bottom, 7.5);
 			width: 60%;
 		}
 		hr{
@@ -331,7 +334,6 @@ section{
 		background-repeat: none;
 		h2{
 			color: $light-orchid;
-			@include responsive(margin-bottom, 7.5);
 			width: 60%;
 		}
 		hr{
@@ -358,78 +360,6 @@ section{
 			min-height: 100%;
 			transform: translate(-50%,-50%);
 			z-index: -1;
-		}
-	}
-	&--hp-contact{
-		background: #fff;
-		display: flex;
-		justify-content: space-between;
-		color: $quba-red-dark;
-		& > div{
-			display: flex;
-			flex-direction: column;
-		}
-		h2{
-			color: $quba-red-dark;
-		}
-		hr{
-			background: $quba-red-dark;
-		}
-		span{
-			@include responsive(font-size, 1.1);
-			@include breakpoint(s){ font-size: $extra-small; }
-			@include responsive(margin-bottom, 1);
-			color: $quba-red-dark;
-		}
-		a{
-			color: $quba-red-dark;
-			position: relative;
-			transition: 0.3s ease;
-			&:before{
-				content: "";
-				position: absolute;
-				width: 100%;
-				height: 3px;
-				left: 0;
-				bottom: -3px;
-				background: $quba-red-dark;
-			}
-			&:after{
-				content: "";
-				position: absolute;
-				width: 0;
-				height: 3px;
-				left: 0;
-				bottom: -3px;
-				background: $quba-red;
-				transition: 0.3s ease;
-			}
-			&:hover{
-				text-decoration: none;
-				color: $quba-red;
-				&:after{
-					width: 100%;
-				}
-			}
-		}
-		.footer-right{
-			display: flex;
-			text-align: right;
-			.social-icons{
-				@include responsive(margin-bottom, 1);
-				@include responsive(font-size, 1.5);
-				@include breakpoint(s){ font-size: $extra-small; }
-				a:before{
-					background: #fff;
-				}
-			}
-			.footer-logos{
-				margin-top: auto;
-				img{
-					@include responsive(max-height, 2);
-					@include responsive(margin-left, 0.5);
-				}
-			}
 		}
 	}
 }

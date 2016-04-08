@@ -2,6 +2,76 @@
 	Footer
 \*------------------------------------*/
 
-[role=contentinfo] {
-    text-align: center;
+.block--contact{
+	background: #fff;
+	display: flex;
+	justify-content: space-between;
+	color: $quba-red-dark;
+	& > div{
+		display: flex;
+		flex-direction: column;
+	}
+	h2{
+		color: $quba-red-dark;
+		margin-bottom: 0;
+	}
+	hr{
+		background: $quba-red-dark;
+	}
+	span{
+		@include responsive(font-size, 1.1);
+		@include breakpoint(s){ font-size: $extra-small; }
+		@include responsive(margin-bottom, 1);
+		color: $quba-red-dark;
+	}
+	a{
+		color: $quba-red-dark;
+		position: relative;
+		transition: 0.3s ease;
+		&:before{
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 3px;
+			left: 0;
+			bottom: -3px;
+			background: $quba-red-dark;
+		}
+		&:after{
+			content: "";
+			position: absolute;
+			width: 0;
+			height: 3px;
+			left: 0;
+			bottom: -3px;
+			background: $quba-red;
+			transition: 0.3s ease;
+		}
+		&:hover{
+			text-decoration: none;
+			color: $quba-red;
+			&:after{
+				width: 100%;
+			}
+		}
+	}
+	.footer-right{
+		display: flex;
+		text-align: right;
+		.social-icons{
+			@include responsive(margin-bottom, 1);
+			@include responsive(font-size, 1.5);
+			@include breakpoint(s){ font-size: $extra-small; }
+			a:before{
+				background: #fff;
+			}
+		}
+		.footer-logos{
+			margin-top: auto;
+			img{
+				@include responsive(max-height, 2);
+				@include responsive(margin-left, 0.5);
+			}
+		}
+	}
 }
