@@ -39,17 +39,19 @@
 @import "base.grid.scss";
 @import "base.animate.scss";
 @import "base.style-guide.scss";
+@import "base.themes.scss";
 
 /* Components
 ==================== */
 @import "components.alerts.scss";
 @import "components.breadcrumb.scss";
-@import "components.buttons.scss";
 @import "components.forms.scss";
 @import "components.header.scss";
 @import "components.pagination.scss";
 @import "components.section.scss";
 @import "components.footer.scss";
+@import "components.miscellaneous.scss";
+@import "components.buttons.scss";
 
 /* Trumps
 ==================== */

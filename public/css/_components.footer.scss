@@ -6,16 +6,24 @@
 	background: #fff;
 	display: flex;
 	justify-content: space-between;
+	flex-direction: row;
 	color: $quba-red-dark;
+    border-top: 3px solid $quba-red-dark;
+    background: #eee;
 	& > div{
 		display: flex;
 		flex-direction: column;
 	}
 	h2{
 		color: $quba-red-dark;
-		margin-bottom: 0;
+		margin: 0;
 	}
 	hr{
+        margin: 0;
+		height: 6px;
+		margin-bottom: 6vh;
+		@include responsive(width, 5);
+		text-align: left;
 		background: $quba-red-dark;
 	}
 	span{
@@ -24,10 +32,14 @@
 		@include responsive(margin-bottom, 1);
 		color: $quba-red-dark;
 	}
+    .meta-info{
+        @include responsive(font-size, 0.7);
+    }
 	a{
 		color: $quba-red-dark;
 		position: relative;
 		transition: 0.3s ease;
+        text-decoration: none;
 		&:before{
 			content: "";
 			position: absolute;
@@ -47,7 +59,7 @@
 			background: $quba-red;
 			transition: 0.3s ease;
 		}
-		&:hover{
+		&:hover, &:active, &:focus{
 			text-decoration: none;
 			color: $quba-red;
 			&:after{
@@ -63,7 +75,7 @@
 			@include responsive(font-size, 1.5);
 			@include breakpoint(s){ font-size: $extra-small; }
 			a:before{
-				background: #fff;
+				background: transparent;
 			}
 		}
 		.footer-logos{

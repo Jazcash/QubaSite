@@ -16,3 +16,15 @@ router.get("/about", function(req, res, next) {
 		title: "Quba Site | About",
 	});
 });
+
+router.get("/services", function(req, res, next) {
+	res.render("services", {
+		title: "Quba Site | Services",
+	});
+});
+
+router.get("/tech", function(req, res, next) {
+	res.render("tech", {
+		title: "Quba Site | Technology",
+	});
+});

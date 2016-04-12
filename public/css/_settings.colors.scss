@@ -1,30 +1,28 @@
-/*------------------------------------*\
-	Colors
-\*------------------------------------*/
+// for naming colours: http://chir.ag/projects/name-that-color
 
-$background-color: #5A2226;
-$font-color: #333;
-$heading-color: #333;
-$link-color: #0087D0;
-$link-color-hover: darken($link-color, 25%);
+$background-color: rgba(90 , 34 , 38 , 1);  //#5A2226;
+$font-color:       rgba(51 , 51 , 51 , 1);  //#333333;
+$heading-color:    rgba(51 , 51 , 51 , 1);  //#333333;
+$link-color:       rgba(0  , 135, 208, 1);  //#0087D0;
+$important:        rgba(186, 77 , 72 , 1);  //#BA4D48;
+$info:             rgba(49 , 112, 143, 1);  //#31708f;
+$success:          rgba(60 , 118, 61 , 1);  //#3c763d;
+$warning:          rgba(169, 68 , 66 , 1);  //#a94442;
+$primary:          rgba(79 , 173, 244, 1);  //#4FADF4;
+$secondary:        rgba(215, 209, 199, 1);  //#D7D1C7;
+$greentea:         rgba(3  , 111, 115, 1);  //#036F73;
+$ripe-orange:      rgba(244, 159, 17 , 1);  //#F49F11;
 
-$important: #BA4D48;
-$info: #31708f;
-$success: #3c763d;
-$warning: #a94442;
+// theme colours
 
-$primary: #4FADF4;
-$secondary: #D7D1C7;
+// Quba Red
+$quba-red:         rgba(193, 32 , 43 , 1);  //#C1202B;
+$quba-red-dark:    rgba(62 , 14 , 26 , 1);  //#3E0E1A;
 
-// use this for deciding names: http://chir.ag/projects/name-that-color
+$crimson:          rgba(224, 23 , 38 , 1);  //#E01726;
+$cream:            rgba(254, 239, 157, 1);  //#FEEF9D;
 
-$quba-red: #C1202B;
-$quba-red-dark: #3E0E1A;
-$crimson: #E01726;
-$cream: #FEEF9D;
-$beige: #F37D49;
-$anakiwa: #94EEF9;
-$nevada: #5D6265;
-$light-orchid: #DFA4D0;
-$greentea: #036F73;
-$ripe-orange: #F49F11;
+$beige:            rgba(243, 125, 73 , 1);  //#F37D49;
+$anakiwa:          rgba(148, 238, 249, 1);  //#94EEF9;
+$nevada:           rgba(93 , 98 , 101, 1);  //#5D6265;
+$light-orchid:     rgba(223, 164, 208, 1);  //#DFA4D0;

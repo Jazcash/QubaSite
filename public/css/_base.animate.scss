@@ -35,3 +35,14 @@
 		transform: translateY(0);
 	}
 }
+
+.bounce{
+    position: absolute;
+    animation: bounce 4s infinite;
+}
+
+@keyframes bounce {
+    0%   { margin-bottom: 0px; }
+    50%  { margin-bottom: 30px; }
+    100% { margin-bottom: 0px; }
+}

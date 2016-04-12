@@ -1,4 +1,11 @@
-section{
+.block{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	@include responsive(padding, 2.9);
+
 	h1{
 		@include responsive(font-size, 4);
 		color: $quba-red;
@@ -21,16 +28,33 @@ section{
 		margin: 0;
 		@include responsive(font-size, 1.1);
 		@include responsive(line-height, 1.35);
-	}
-}
 
-.block{
-	position: relative;
-	@include responsive(padding, 2.9);
-	h2{
-		@include responsive(margin-bottom, 7.5);
+		a{
+			color: $quba-red-dark;
+		}
 	}
-	.block__centre{
+
+	&--fullscreen{
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&-background{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		z-index: -5;
+	}
+
+	&__centre{
 		text-align: center;
 		height: 100%;
 		display: flex;
@@ -41,187 +65,203 @@ section{
 		@include breakpoint(m){ width: 75%; }
 		@include breakpoint(s){ width: 85%; }
 	}
-	&--hp-first{
-		height: 100vh;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-		overflow: hidden;
-		padding: 0;
-		background-color: rgba(70, 15, 19, 0.7);
-		background-size: cover;
-		background-position: center center;
-		background-repeat: none;
-		&:before{
-			content: "";
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			left: 0;
-			top: 0;
-			background: rgba(70, 15, 19, 1);
-			z-index: -3;
+
+	/*
+		db   db  .d88b.  .88b  d88. d88888b d8888b.  .d8b.   d888b  d88888b
+		88   88 .8P  Y8. 88'YbdP`88 88'     88  `8D d8' `8b 88' Y8b 88'
+		88ooo88 88    88 88  88  88 88ooooo 88oodD' 88ooo88 88      88ooooo
+		88~~~88 88    88 88  88  88 88~~~~~ 88~~~   88~~~88 88  ooo 88~~~~~
+		88   88 `8b  d8' 88  88  88 88.     88      88   88 88. ~8~ 88.
+		YP   YP  `Y88P'  YP  YP  YP Y88888P 88      YP   YP  Y888P  Y88888P
+	*/
+
+	&--hp{
+		h2{
+			@include responsive(margin-bottom, 7.5);
 		}
-		hr{
-			background: $quba-red;
-			height: 6px;
-			@include responsive(width, 5);
-			margin-top: 2vh;
-			margin-bottom: 4vh;
-		}
-		p{
-			margin: 0;
-			color: $quba-red;
-			@include breakpoint(s){
-				font-size: $extra-small;
-			}
-			width: 100%;
-		}
-		video{
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			min-width: 100%;
-			min-height: 100%;
-			transform: translate(-50%,-50%);
-			z-index: -2;
-		}
-	}
-	&--hp-current-clients{
-		background: $crimson;
-		h3{
-			color: $cream;
-			@include responsive(margin-bottom, 1);
-			text-align: center;
-		}
-		hr{
-			background: $cream;
-			text-align: center;
-			margin: 0 auto;
-		}
-		ul{
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
+
+		&-first{
+			height: 100vh;
 			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
-			width: 100%;
-			li{
-				margin: auto;
-				a{
-					img{
-						@include responsive(max-height, 2.2);
-						@include responsive(margin, 1);
-						transition: opacity 0.3s ease;
-						-webkit-backface-visibility: hidden;
-					}
-					img[src*='chatsworth']{
-						@include responsive(max-height, 3);
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			overflow: hidden;
+			padding: 0;
+			background-color: rgba(70, 15, 19, 0.7);
+			background-size: cover;
+			background-position: center center;
+			background-repeat: none;
+			&:before{
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				background: rgba(70, 15, 19, 1);
+				z-index: -3;
+			}
+			hr{
+				background: $quba-red;
+				height: 6px;
+				@include responsive(width, 5);
+				margin-top: 2vh;
+				margin-bottom: 4vh;
+			}
+			p{
+				margin: 0;
+				color: $quba-red;
+				@include breakpoint(s){
+					font-size: $extra-small;
+				}
+				width: 100%;
+			}
+			video{
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				min-width: 100%;
+				min-height: 100%;
+				transform: translate(-50%,-50%);
+				z-index: -2;
+			}
+		}
+		&-current-clients{
+			background: $crimson;
+			h3{
+				color: $cream;
+				@include responsive(margin-bottom, 1);
+				text-align: center;
+			}
+			hr{
+				background: $cream;
+				text-align: center;
+				margin: 0 auto;
+			}
+			ul{
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				width: 100%;
+				li{
+					margin: auto;
+					a{
+						img{
+							@include responsive(max-height, 2.2);
+							@include responsive(margin, 1);
+							transition: opacity 0.3s ease;
+							-webkit-backface-visibility: hidden;
+						}
+						img[src*='chatsworth']{
+							@include responsive(max-height, 3);
+						}
 					}
 				}
-			}
-			&:hover{
-				a{
-					img{
-						opacity: 0.5;
-					}
-					&:hover{
+				&:hover{
+					a{
 						img{
-							opacity: 1;
+							opacity: 0.5;
+						}
+						&:hover{
+							img{
+								opacity: 1;
+							}
 						}
 					}
 				}
 			}
 		}
-	}
-	&--hp-dexterity{
-		z-index: 10;
-		background-color: rgba(113,82,60, 1);
-		&:after{
-			position: absolute;
-			content: "";
-			width: 100%;
-			height: 100%;
-			top: 0;
-			left: 0;
-			z-index: -1;
-			background-color: rgba(113,82,60, 0.8);
-		}
-		h2{
-			color: $beige;
-			width: 60%;
-		}
-		hr{
-			background: $beige;
-		}
-		p{
-			width: 60%;
-			color: $beige;
-		}
-		@include breakpoint(s){
-			h2{
-				font-size: $medium;
-			}
-			p{
-				width: 100%;
-				font-size: $extra-small;
-			}
-		}
-		.frames{
-			.frame{
+		&-dexterity{
+			z-index: 10;
+			background-color: rgba(113,82,60, 1);
+			align-items: stretch;
+			&:after{
 				position: absolute;
+				content: "";
+				width: 100%;
+				height: 100%;
 				top: 0;
 				left: 0;
-				height: 100%;
-				width: 100%;
-				background-size: cover;
 				z-index: -1;
-				opacity: 1;
+				background-color: rgba(113,82,60, 0.8);
 			}
-		}
-	}
-	&--hp-our-work{
-		width: 100%;
-		background: $nevada;
-		overflow: hidden;
-		z-index: 2;
-		text-align: center;
-		padding: 0;
-		.overlay{
-			position: relative;
-			img{
-				max-width: 100%;
-				width: 100%;
-				height: auto;
-				vertical-align: middle;
-				z-index: 10;
+			h2{
+				color: $beige;
+				width: 60%;
 			}
-		}
-		.underlay{
-			position: fixed;
-			width: 100%;
-			z-index: -1;
-		}
-		.show{
-			top: 0;
-		}
-		.return-scroll{
-			position: relative;
-		}
-		ul{
-			margin: 0;
-			padding: 0;
-			display: flex;
-			flex-wrap: wrap;
-			li{
-				position: relative;
-				width: 33.33%;
-				@include breakpoint(m){
-					width: 50%;
+			hr{
+				background: $beige;
+			}
+			p{
+				width: 60%;
+				color: $beige;
+			}
+			@include breakpoint(s){
+				h2{
+					font-size: $medium;
 				}
-				a{
+				p{
+					width: 100%;
+					font-size: $extra-small;
+				}
+			}
+			.frames{
+				.frame{
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 100%;
+					width: 100%;
+					background-size: cover;
+					z-index: -1;
+					opacity: 1;
+				}
+			}
+		}
+		&-our-work{
+			display: block;
+			width: 100%;
+			background: $nevada;
+			overflow: hidden;
+			z-index: 2;
+			text-align: center;
+			padding: 0;
+			.overlay{
+				position: relative;
+				img{
+					max-width: 100%;
+					width: 100%;
+					height: auto;
+					vertical-align: middle;
+					z-index: 10;
+				}
+			}
+			.underlay{
+				position: fixed;
+				width: 100%;
+				z-index: -1;
+			}
+			.show{
+				top: 0;
+			}
+			.return-scroll{
+				position: relative;
+			}
+			ul{
+				margin: 0;
+				padding: 0;
+				display: flex;
+				flex-wrap: wrap;
+				li{
+					position: relative;
+					width: 33.33%;
+					@include breakpoint(m){
+						width: 50%;
+					}
 					.tile-centre{
 						position: absolute;
 						width: 100%;
@@ -234,12 +274,13 @@ section{
 						flex-direction: column;
 						z-index: 2;
 						padding: $extra-small;
-						a, h4{
+						h4, a{
 							color: #fff;
 							margin-bottom: 10px;
 							@include responsive(font-size, 1);
 							@include breakpoint(m){ font-size: $small/1.2; }
 							font-family: $primary-font;
+							transition: .3s ease;
 						}
 						p{
 							line-height: $extra-small;
@@ -248,118 +289,310 @@ section{
 							font-style: italic;
 							@include responsive(font-size, 0.5);
 							@include breakpoint(m){ font-size: $extra-small/1.2; }
+							transition: .3s ease;
 						}
 					}
-				}
-				&:not(.see-more){
-					&:hover{
-						&:after{
-							content: "";
-							position: absolute;
-							top: 0;
-							left: 0;
-							width: 100%;
-							height: 100%;
-							background: rgba(105, 232, 187, 0.9);
-							z-index: 1;
-						}
-						a .tile-centre h4,
-						a .tile-centre p{
-							color: #333;
+					&:not(.see-more){
+						&:hover{
+							&:after{
+								content: "";
+								position: absolute;
+								top: 0;
+								left: 0;
+								width: 100%;
+								height: 100%;
+								background: rgba(105, 232, 187, 0.9);
+								z-index: 1;
+							}
+							a .tile-centre h4,
+							a .tile-centre p{
+								color: #333;
+							}
 						}
 					}
 				}
 			}
 		}
-	}
-	&--hp-our-partners-gap{
-		height: 60vh;
-		padding: 0;
-	}
-	&--hp-our-partners{
-		background: $nevada;
-		position: fixed;
-		width: 100%;
-		max-width: 100%;
-		height: 100vh;
-		top: 0;
-		left: 0;
-		overflow: hidden;
-		z-index: -10;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		h3{
-			color: $anakiwa;
-			text-align: center;
-			margin: 0 auto;
-			@include responsive(margin-bottom, 1);
-		}
-		hr{
-			background: $anakiwa;
-			margin-left: auto;
-			margin-right: auto;
-		}
-		ul{
-			list-style-type: none;
-			margin: 0;
+		&-our-partners-gap{
+			height: 60vh;
 			padding: 0;
-			li{
-				width: calc(100% * (1/4) - 10px - 1px);
+		}
+		&-our-partners{
+			background: $nevada;
+			position: fixed;
+			width: 100%;
+			max-width: 100%;
+			height: 100vh;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+			z-index: -10;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			h3{
+				color: $anakiwa;
 				text-align: center;
-				margin: auto;
-				@include responsive(margin-top, 0.7);
-				@include responsive(margin-bottom, 0.7);
-				display: inline-block;
-				@include breakpoint(l){
-					width: calc(100% * (1/3) - 10px - 1px);
-				}
-				@include breakpoint(m){
-					width: calc(100% * (1/2) - 10px - 1px);
-				}
-				@include breakpoint(s){
-					width: calc(100% - 10px - 1px);
-				}
-				img{
-					@include responsive(max-height, 1.5);
+				margin: 0 auto;
+				@include responsive(margin-bottom, 1);
+			}
+			hr{
+				background: $anakiwa;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			ul{
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				li{
+					width: calc(100% * (1/4) - 10px - 1px);
+					text-align: center;
+					margin: auto;
+					@include responsive(margin-top, 0.7);
+					@include responsive(margin-bottom, 0.7);
+					display: inline-block;
+					@include breakpoint(l){
+						width: calc(100% * (1/3) - 10px - 1px);
+					}
+					@include breakpoint(m){
+						width: calc(100% * (1/2) - 10px - 1px);
+					}
+					@include breakpoint(s){
+						width: calc(100% - 10px - 1px);
+					}
+					img{
+						@include responsive(max-height, 1.5);
+					}
 				}
 			}
 		}
-	}
-	&--hp-commercial-ability{
-		overflow: hidden;
-		background-color: rgba(70, 15, 19, 0.7);
-		background-size: cover;
-		background-position: center center;
-		background-repeat: none;
-		h2{
-			color: $light-orchid;
-			width: 60%;
-		}
-		hr{
-			background: $light-orchid;
-		}
-		p{
-			color: $light-orchid;
-			width: 60%;
-		}
-		@include breakpoint(s){
+		&-commercial-ability{
+			overflow: hidden;
+			background-color: rgba(70, 15, 19, 0.7);
+			background-size: cover;
+			background-position: center center;
+			background-repeat: none;
 			h2{
-				font-size: $medium;
+				color: $light-orchid;
+				width: 60%;
+			}
+			hr{
+				background: $light-orchid;
 			}
 			p{
-				width: 100%;
-				font-size: $extra-small;
+				color: $light-orchid;
+				width: 60%;
+			}
+			@include breakpoint(s){
+				h2{
+					font-size: $medium;
+				}
+				p{
+					width: 100%;
+					font-size: $extra-small;
+				}
+			}
+			video{
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				min-width: 100%;
+				min-height: 100%;
+				transform: translate(-50%,-50%);
+				z-index: -1;
 			}
 		}
-		video{
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			min-width: 100%;
-			min-height: 100%;
-			transform: translate(-50%,-50%);
-			z-index: -1;
+	}
+
+	/*
+		 .d8b.  d8888b.  .d88b.  db    db d888888b
+		d8' `8b 88  `8D .8P  Y8. 88    88 `~~88~~'
+		88ooo88 88oooY' 88    88 88    88    88
+		88~~~88 88~~~b. 88    88 88    88    88
+		88   88 88   8D `8b  d8' 88b  d88    88
+		YP   YP Y8888P'  `Y88P'  ~Y8888P'    YP
+	*/
+
+	&--about{
+		&-first{
+			padding: 0;
+			h1, p{
+				color: #fd9567;
+			}
+			hr{
+				background: #fd9567;
+			}
+		}
+
+		&-numbers{
+			background: #483a43;
+			p{
+				color: #dfa4d0;
+			}
+		}
+
+		&-mountain{
+			p{
+				color: #fff;
+			}
+		}
+
+		&-investors{
+			background: #2D4432;
+			p{
+				color: #86f2be;
+			}
+		}
+
+		&-building{
+			p{
+				color: #fff;
+			}
+			.youtubePlayer{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+			.closePlayer{
+				position: absolute;
+				top: 0;
+				right: 0;
+				font-size: $extra-large;
+				color: #fff;
+				padding: $extra-small;
+				display: none;
+				z-index: 25;
+				&:hover{
+					cursor: pointer;
+					color: $quba-red;
+				}
+			}
+		}
+
+		&-decoded{
+			background: #ef7069;
+			p{
+				color: #EFF6CB;
+			}
+		}
+
+		&-dog{
+			p{
+				color: #fff;
+			}
+		}
+
+		&-certifications{
+			background: #5d6265;
+			p{
+				color: #8ff3ff;
+			}
+		}
+
+		&-working{
+			p{
+				color: #fff;
+			}
+		}
+
+		&-thing{
+			p{
+				color: $quba-red;
+			}
+		}
+
+		&-values{
+			h2{
+				margin: 0;
+			}
+			h3{
+				@include responsive(font-size, 1);
+				margin-bottom: 5px;
+				margin-top: 25px;
+			}
+			h2, h3, h4, h5, p{
+				color: #fff;
+				text-align: center;
+			}
+			p{
+				@include responsive(font-size, 0.7);
+				line-height: 1.2;
+				color: #fd9567;
+			}
+			ul{
+				text-align: left;
+				display: flex;
+				flex-wrap: wrap;
+				list-style-type: none;
+				li{
+					width: 50%;
+					padding: $large;
+				}
+			}
+		}
+	}
+
+	/*
+		.d8888. d88888b d8888b. db    db d888888b  .o88b. d88888b .d8888.
+		88'  YP 88'     88  `8D 88    88   `88'   d8P  Y8 88'     88'  YP
+		`8bo.   88ooooo 88oobY' Y8    8P    88    8P      88ooooo `8bo.
+		  `Y8b. 88~~~~~ 88`8b   `8b  d8'    88    8b      88~~~~~   `Y8b.
+		db   8D 88.     88 `88.  `8bd8'    .88.   Y8b  d8 88.     db   8D
+		`8888Y' Y88888P 88   YD    YP    Y888888P  `Y88P' Y88888P `8888Y'
+	*/
+
+	&--services{
+		&-first{
+			flex-direction: column;
+			color: $quba-red;
+		}
+
+		&:not(.block--services-first){
+			flex-direction: column;
+			align-items: flex-start;
+			flex-wrap: wrap;
+			//height: 100vh;
+
+			p{
+				@include responsive(margin-bottom, 1);
+			}
+			a{
+				@include responsive(font-size, 1.1);
+			}
+			li{
+				@include responsive(font-size, 0.9);
+				@include responsive(margin-bottom, 0.5);
+				list-style-type: none;
+				&:before{
+					content: "-";
+					position: absolute;
+					margin-left: -15px;
+				}
+			}
+			@include breakpoint(m){
+				ul{
+					margin-top: $small;
+				}
+			}
+
+			.block-background{
+				opacity: 0.5;
+				&:before{
+					content: "";
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					background: linear-gradient(to left,
+									rgba(255,255,255,1) 0%,
+									rgba(255,255,255,0.1) 100%);
+					z-index: -50;
+				}
+			}
 		}
 	}
 }
