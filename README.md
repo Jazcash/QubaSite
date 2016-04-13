@@ -9,8 +9,8 @@
 - `gulp`
 
 - [ ] Setup themes for the colour schemes and add these as classes in the html
-- [ ] Do images in CSS rather than inline html?
-- [ ]
+- [ ] Ongoing - Keep stuff as individual components that can be transformed into Kentico controls
+- [ ] Setup PNG -> Compressed JPG task in gulp
 - [x] Discuss chevrons
 - [x] Discuss burger menu
 - [x] Discuss see more link on case studies
