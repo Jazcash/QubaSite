@@ -4,6 +4,7 @@ var gulp = require('gulp'),
 	livereload = require('gulp-livereload'),
 	sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
+	responsive = require('gulp-responsive'),
 	sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('sass', function () {
@@ -18,6 +19,21 @@ gulp.task('sass', function () {
 		.pipe(sourcemaps.write('../maps'))
 		.pipe(gulp.dest('./public/css'))
 		.pipe(livereload());
+});
+
+gulp.task('images', function(){
+	gulp.src('./public/img/sections/*.{png,jpg}')
+		.pipe(responsive({
+			'*.png': {
+				format: 'jpeg',
+				quality: 70,
+				rename: {extname: '.jpg'}
+			},
+			'*.jpg': {
+				quality: 70
+			}
+		}))
+		.pipe(gulp.dest('./public/img/sections/compressedJpgs'))
 });
 
 gulp.task('watch', function() {
@@ -43,6 +59,7 @@ gulp.task('develop', function () {
 
 gulp.task('default', [
 	'sass',
+	'images',
 	'develop',
 	'watch'
 ]);

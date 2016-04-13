@@ -48,6 +48,7 @@ header{
 					font-size: $small;
 					@include breakpoint(s){ font-size: $extra-small; }
 					color: #fff;
+					text-decoration: none;
 					&:before{
 						content: "";
 						position: absolute;

@@ -92,6 +92,7 @@ Create a CSS transition
 }
 
 
+
 /**
  * Clearfix
  * Example usage:
@@ -105,5 +106,39 @@ Create a CSS transition
 		content: "";
 		display: table;
 		clear: both;
+	}
+}
+
+
+
+/* for full size backgrounds */
+.fillArea{
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+
+@mixin theme($textColour, $backgroundColour){
+	h1,h2,h3,h4,h5,h6,p,a,li,span{
+		color: $textColour !important;
+	}
+	hr{
+		background: $textColour;
+	}
+	a:hover{
+		color: darken($textColour, 25%) !important;
+	}
+	&.block--services:not(.block--services-first){
+		.block-background:after{
+			@extend .fillArea;
+			background: linear-gradient(to right,
+				rgba($backgroundColour, 0.6) 0%,
+				rgba($backgroundColour, 1) 100%
+			);
+		}
 	}
 }
