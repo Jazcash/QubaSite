@@ -1,7 +1,4 @@
 .colour{
-	&--white{
-		@include theme(#fff, #000);
-	}
 	&--quba-red{
 		@include theme($quba-red, $quba-red-dark);
 	}
@@ -19,5 +16,8 @@
 	}
 	&--dusk{
 		@include theme($light-orchid, $matterhorn);
+	}
+	&--white{
+		@include theme(#fff, #000);
 	}
 }

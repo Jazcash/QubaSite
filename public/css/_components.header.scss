@@ -3,28 +3,22 @@
 \*------------------------------------*/
 
 header{
-    position: fixed;
-	z-index: 20;
+	position: absolute;
 	width: 100%;
 	display: flex;
 	align-self: flex-start;
-	text-align: center;
 	flex-direction: column;
+	text-align: center;
 	@include responsive(padding, 1.5);
-    transition: 0.5s ease;
+	padding-bottom: $extra-large;
+    transition: 0.3s ease;
     -webkit-backface-visibility: hidden;
-	.quba-logo{
-		position: relative;
-		&:before{
-			content: "";
-			position: absolute;
-			width: 10px;
-			height: 10px;
-			background: red;
-			left: 0;
-			top: 0;
-		}
-	}
+    z-index: 20;
+
+    svg{
+    	fill: #fff;
+    }
+
 	nav{
 		display: flex;
 		justify-content: center;
@@ -35,11 +29,8 @@ header{
 			padding: 0;
 			display: flex;
 			flex-wrap: wrap;
-			flex-align: center;
 			li{
 				display: flex-inline;
-				justify-content: center;
-				flex-direction: column;
 				margin: 5px auto;
 				a{
 					position: relative;
@@ -61,8 +52,13 @@ header{
 						opacity: 0;
 					}
 					&:hover, &:active, &:focus{
-						color: #fff;
 						text-decoration: none;
+						&:before{
+							opacity: 1;
+							bottom: -3px;
+						}
+					}
+					&.active{
 						&:before{
 							opacity: 1;
 							bottom: -3px;
@@ -72,11 +68,16 @@ header{
 			}
 		}
 	}
-	&.hide{
-		opacity: 0;
-		pointer-events: none;
-	}
-	&.background{
-		background-color: rgba(62, 14, 26, 0.8);
+
+	&.dark{
+		svg{
+			fill: $quba-red;
+		}
+		a{
+			color: $quba-red;
+			&:before{
+				background: $quba-red;
+			}
+		}
 	}
 }

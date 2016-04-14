@@ -1,19 +1,16 @@
 var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent));
 var isHomepage = $(".block--hp-first").length > 0;
 
-/* HEADER NAVIGATION DISAPPEAR WHEN SCROLL DOWN */
-var lastScrollPos = 0;
-var $nav = $(".fullpage-nav");
-$(window).on('scroll touchmove', function(event) {
-    var currentScrollPos = $(this).scrollTop();
-    if (currentScrollPos > lastScrollPos && currentScrollPos > 100) { // if scrolling down
-        $nav.addClass("hide");
-    } else if (currentScrollPos <= 100) { // if near top section
-        $nav.removeClass("hide").removeClass("background");
-    } else { // if scrolling up
-        $nav.removeClass("hide").addClass("background");
-    }
-    lastScrollPos = currentScrollPos;
+// make content take header height into account as it's position: absolute
+$(".block").eq(0).css("padding-top", $("header").outerHeight());
+
+// highlight current page in nav
+$(function(){
+	var pageName = window.location.pathname;
+	$("header li a").each(function(element){
+		if ($(this).attr("href") == pageName)
+			$(this).addClass("active");
+	});
 });
 
 /* CHEVRON IN FIRST HOMEPAGE SECTION */
@@ -155,3 +152,9 @@ if (isHomepage){
 		});
 	});
 }
+
+$('.grid').masonry({
+	itemSelector: '.grid-item',
+	columnWidth: '.grid-sizer',
+	percentPosition: true
+});

@@ -121,24 +121,42 @@ Create a CSS transition
 	left: 0;
 }
 
-
 @mixin theme($textColour, $backgroundColour){
 	h1,h2,h3,h4,h5,h6,p,a,li,span{
-		color: $textColour !important;
+		color: $textColour;
 	}
 	hr{
 		background: $textColour;
 	}
 	a:hover{
-		color: darken($textColour, 25%) !important;
+		color: darken($textColour, 20%);
+	}
+	.btn{
+		border-color: $textColour;
+		color: $textColour;
+		&:after{
+			background: $textColour;
+		}
+	}
+	&:not(.block--fullscreen).block--about:not(.block--about-first){
+		background: $backgroundColour;
 	}
 	&.block--services:not(.block--services-first){
+		li{
+			color: #fff;
+		}
 		.block-background:after{
 			@extend .fillArea;
-			background: linear-gradient(to right,
+			background: linear-gradient(to left,
 				rgba($backgroundColour, 0.6) 0%,
 				rgba($backgroundColour, 1) 100%
 			);
+		}
+	}
+	&.block--tech:not(.block--tech-first){
+		.block-background:after{
+			@extend .fillArea;
+			background-color: rgba($backgroundColour, 0.4);
 		}
 	}
 }

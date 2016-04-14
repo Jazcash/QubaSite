@@ -28,3 +28,15 @@ router.get("/tech", function(req, res, next) {
 		title: "Quba Site | Technology",
 	});
 });
+
+router.get("/work", function(req, res, next) {
+	res.render("work", {
+		title: "Quba Site | Work",
+	});
+});
+
+router.get("/blog", function(req, res, next) {
+	res.render("blog", {
+		title: "Quba Site | Blog",
+	});
+});
