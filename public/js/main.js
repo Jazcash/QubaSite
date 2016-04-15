@@ -1,6 +1,11 @@
 var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent));
 var isHomepage = $(".block--hp-first").length > 0;
 
+$(window).on('scroll touchmove', function(event) {
+	var currentScroll = $(window).scrollTop();
+	(currentScroll > 175) ? $("header").addClass("slim") : $("header").removeClass("slim");
+});
+
 // make content take header height into account as it's position: absolute
 $(".block").eq(0).css("padding-top", $("header").outerHeight());
 
@@ -153,8 +158,10 @@ if (isHomepage){
 	});
 }
 
-$('.grid').masonry({
-	itemSelector: '.grid-item',
-	columnWidth: '.grid-sizer',
-	percentPosition: true
+$(window).load(function(){
+	$('.grid').masonry({
+		itemSelector: '.grid-item',
+		columnWidth: '.grid-sizer',
+		percentPosition: true
+	});
 });

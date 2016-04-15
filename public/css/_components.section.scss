@@ -28,6 +28,13 @@
 	h3{
 		@include responsive(font-size, 2.5);
 	}
+	h4{
+		@include responsive(font-size, 1);
+		@include breakpoint(m){ font-size: $small/1.2; }
+	}
+	h5{
+		@include responsive(font-size, 0.8);
+	}
 	p{
 		margin: 0;
 		@include responsive(font-size, 1.1);
@@ -83,8 +90,6 @@
 				h4, a{
 					color: #fff;
 					margin-bottom: 10px;
-					@include responsive(font-size, 1);
-					@include breakpoint(m){ font-size: $small/1.2; }
 					font-family: $primary-font;
 					transition: .3s ease;
 				}
@@ -504,9 +509,6 @@
 			p{
 				@include responsive(margin-bottom, 2);
 			}
-			a{
-				@include responsive(font-size, 1.1);
-			}
 			li{
 				@include responsive(font-size, 0.9);
 				@include responsive(margin-bottom, 0.5);
@@ -574,38 +576,118 @@
 		 `8b8' `8d8'   `Y88P'  88   YD YP   YD
 	*/
 
-	&--work{
-		&-landing{
-			background: #fff;
-			h1{
-				color: $quba-red-dark;
+	&--work-overview{
+		background: #fff;
+		h1{
+			color: $quba-red-dark;
+			margin-bottom: $large;
+		}
+		ul{
+			width: 100%;
+			li{
+				width: 25%;
+				height: 25%;
+				position: relative;
 			}
-			ul{
-				width: 100%;
-				li{
-					width: 25%;
-					height: 25%;
-					position: relative;
+		}
+
+		.grid{
+			width: 100%;
+			.grid-item,
+			.grid-sizer{
+				width: 25%;
+				padding: 6px;
+				float: left;
+				&:nth-child(3n-1){
+					width: 50%;
+				}
+				&:nth-child(6n){
+					left: 25% !important;
+				}
+				&:nth-child(6n+1){
+					left: 0% !important;
 				}
 			}
 		}
 	}
 
-	.grid{
-		width: 100%;
-		.grid-item,
-		.grid-sizer{
-			width: 25%;
-			padding: 6px;
-			float: left;
-			&:nth-child(3n-1){
-				width: 50%;
+	/*
+		d8888b. db       .d88b.   d888b
+		88  `8D 88      .8P  Y8. 88' Y8b
+		88oooY' 88      88    88 88
+		88~~~b. 88      88    88 88  ooo
+		88   8D 88booo. `8b  d8' 88. ~8~
+		Y8888P' Y88888P  `Y88P'   Y888P
+	*/
+
+	&--blog-overview{
+		background: #fff;
+		h1{
+			color: $quba-red-dark;
+			margin-bottom: $large;
+		}
+		.filters{
+			ul{
+				display: flex;
+				flex-wrap: wrap;
+				a{
+					display:inline-block;
+					padding: 10px;
+					padding-top: 15px;
+					text-decoration: none;
+					color: $quba-red-dark;
+					&:hover, &:focus, &:active, &.active{
+						background: $quba-red;
+						color: #fff;
+					}
+				}
 			}
-			&:nth-child(6n){
-				left: 25% !important;
-			}
-			&:nth-child(6n+1){
-				left: 0% !important;
+		}
+		.posts{
+			width: 100%;
+			ul{
+				width: 100%;
+				background: blue;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: flex-start
+				li{
+					padding: 5px;
+					width: 33.33%;
+					transition: .3s ease-in-out;
+					box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+					img{
+						filter: grayscale(30%);
+						transition: .3s ease-in-out;
+					}
+					&:hover{
+						img{
+							filter: grayscale(0%);
+						}
+					}
+					a{
+						text-decoration: none;
+						.meta{
+							display: flex;
+							flex-direction: column;
+							padding: $extra-small;
+							background: darken($quba-red, 10%);
+							transition: .3s ease;
+							.date{
+								color: #fff;
+								margin-bottom: $extra-small/2;
+							}
+							.title{
+								color: #fff;
+							}
+						}
+						&:hover{
+							.meta{
+								background: $quba-red;
+							}
+						}
+					}
+				}
 			}
 		}
 	}

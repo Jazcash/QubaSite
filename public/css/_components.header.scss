@@ -3,26 +3,29 @@
 \*------------------------------------*/
 
 header{
-	position: absolute;
+	position: fixed;
 	width: 100%;
 	display: flex;
-	align-self: flex-start;
-	flex-direction: column;
-	text-align: center;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
 	@include responsive(padding, 1.5);
-	padding-bottom: $extra-large;
-    transition: 0.3s ease;
+	@include responsive(padding-left, 2.9);
+	@include responsive(padding-right, 2.9);
     -webkit-backface-visibility: hidden;
     z-index: 20;
+    transition: 0.3s ease-in-out;
 
-    svg{
-    	fill: #fff;
+    a{
+    	display: inline-block;
+    	svg{
+    		fill: #fff;
+    	}
     }
 
 	nav{
 		display: flex;
 		justify-content: center;
-		margin-top: $medium;
 		ul{
 			list-style-type: none;
 			margin: 0;
@@ -31,7 +34,6 @@ header{
 			flex-wrap: wrap;
 			li{
 				display: flex-inline;
-				margin: 5px auto;
 				a{
 					position: relative;
 					@include responsive(margin-left, 0.5);
@@ -70,13 +72,29 @@ header{
 	}
 
 	&.dark{
-		svg{
-			fill: $quba-red;
-		}
 		a{
 			color: $quba-red;
+			svg{
+				fill: $quba-red;
+			}
 			&:before{
 				background: $quba-red;
+			}
+		}
+	}
+
+	&.slim{
+		background: rgba($quba-red-dark, 0.95);
+		padding-top: $extra-small + 4px;
+		padding-bottom: $extra-small;
+		border-bottom: 1px solid rgba(#222, 0.95);
+		a{
+			color: #fff;
+			svg{
+				fill: #fff;
+			}
+			&:before{
+				background: #fff;
 			}
 		}
 	}
