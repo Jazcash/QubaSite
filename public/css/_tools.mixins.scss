@@ -159,4 +159,13 @@ Create a CSS transition
 			background-color: rgba($backgroundColour, 0.4);
 		}
 	}
+	.block--casestudy-testimony{
+		background: $backgroundColour;
+		blockquote{
+			color: #fff;
+			footer{
+				color: $textColour;
+			}
+		}
+	}
 }

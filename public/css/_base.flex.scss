@@ -1,0 +1,33 @@
+.flex-spaced{
+	display: flex;
+	justify-content: space-between;
+}
+
+.flex-right{
+	display: flex;
+	justify-content: flex-end;
+}
+.flex-left{
+	display: flex;
+	justify-content: flex-start;
+}
+
+.flex-centre{
+	display: flex;
+	justify-content: center;
+}
+
+.flex-top{
+	display: flex;
+	align-items: flex-start;
+}
+
+.flex-bottom{
+	display: flex;
+	align-items: flex-end;
+}
+
+.flex-middle{
+	display: flex;
+	align-items: flex-center;
+}

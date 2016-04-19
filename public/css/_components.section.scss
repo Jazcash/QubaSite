@@ -14,14 +14,14 @@
 		@include responsive(font-size, 4);
 		text-align: center;
 		& + hr{
-			@include responsive(margin-top, 0.3);
+			@include responsive(margin-top, 1);
 			@include responsive(margin-bottom, 1);
 		}
 	}
 	h2{
 		@include responsive(font-size, 3.5);
 		& + hr{
-			@include responsive(margin-top, 0.3);
+			@include responsive(margin-top, 1);
 			@include responsive(margin-bottom, 1);
 		}
 	}
@@ -104,16 +104,20 @@
 				}
 			}
 			&:not(.see-more){
+				&:after{
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: calc(100% + 0.5px);
+					background: rgba(105, 232, 187, 0);
+					z-index: 1;
+					transition: .2s ease-in-out;
+				}
 				&:hover{
 					&:after{
-						content: "";
-						position: absolute;
-						top: 0;
-						left: 0;
-						width: 100%;
-						height: 100%;
 						background: rgba(105, 232, 187, 0.9);
-						z-index: 1;
 					}
 					.tile-centre h4,
 					.tile-centre p{
@@ -542,12 +546,12 @@
 			color: $quba-red;
 		}
 		&:not(.block--tech-first){
-			min-height: 100vh;
+			//min-height: 100vh;
 			justify-content: flex-start;
 			align-items: flex-start;
 		}
 		.tech-logos{
-			padding: 0;
+			@include responsive(padding-top, 2);
 			margin-top: auto;
 			display: flex;
 			flex-wrap: wrap;
@@ -580,7 +584,8 @@
 		background: #fff;
 		h1{
 			color: $quba-red-dark;
-			margin-bottom: $large;
+			@include responsive(margin-top, 1.5);
+			@include responsive(margin-bottom, 2);
 		}
 		ul{
 			width: 100%;
@@ -596,7 +601,7 @@
 			.grid-item,
 			.grid-sizer{
 				width: 25%;
-				padding: 6px;
+				padding: 0.5%;
 				float: left;
 				&:nth-child(3n-1){
 					width: 50%;
@@ -606,6 +611,42 @@
 				}
 				&:nth-child(6n+1){
 					left: 0% !important;
+				}
+			}
+		}
+	}
+
+	/*
+		 .o88b.  .d8b.  .d8888. d88888b   .d8888. d888888b db    db d8888b. db    db
+		d8P  Y8 d8' `8b 88'  YP 88'       88'  YP `~~88~~' 88    88 88  `8D `8b  d8'
+		8P      88ooo88 `8bo.   88ooooo   `8bo.      88    88    88 88   88  `8bd8'
+		8b      88~~~88   `Y8b. 88~~~~~     `Y8b.    88    88    88 88   88    88
+		Y8b  d8 88   88 db   8D 88.       db   8D    88    88b  d88 88  .8D    88
+		 `Y88P' YP   YP `8888Y' Y88888P   `8888Y'    YP    ~Y8888P' Y8888D'    YP
+	*/
+
+	&--casestudy{
+		&-first{
+
+		}
+		&-content{
+			@include above($break-m){
+				padding-right: 35%;
+			}
+			background-color: #fff;
+			@extend .content;
+		}
+		&-image{
+			padding: 0;
+		}
+		&-testimony{
+			blockquote{
+				@include responsive(width, 20);
+				text-align: center;
+				@include responsive(font-size, 0.9);
+				@include breakpoint(s){ font-size: $extra-small; }
+				footer{
+					margin-top: $medium;
 				}
 			}
 		}
@@ -624,16 +665,20 @@
 		background: #fff;
 		h1{
 			color: $quba-red-dark;
-			margin-bottom: $large;
+			@include responsive(margin-top, 1.5);
+			@include responsive(margin-bottom, 2);
 		}
 		.filters{
+			margin-bottom: $extra-small;
 			ul{
 				display: flex;
 				flex-wrap: wrap;
+				justify-content: center;
 				a{
 					display:inline-block;
 					padding: 10px;
-					padding-top: 15px;
+					padding-top: $extra-small;
+					margin-top: $extra-small/2;
 					text-decoration: none;
 					color: $quba-red-dark;
 					&:hover, &:focus, &:active, &.active{
@@ -644,29 +689,29 @@
 			}
 		}
 		.posts{
-			width: 100%;
 			ul{
-				width: 100%;
-				background: blue;
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: flex-start;
 				li{
-					padding: 5px;
 					width: 33.33%;
+					@include breakpoint(m){ width: 50%; }
+					@include breakpoint(s){ width: 100%; }
 					transition: .3s ease-in-out;
-					box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-					img{
-						filter: grayscale(30%);
-						transition: .3s ease-in-out;
-					}
-					&:hover{
-						img{
-							filter: grayscale(0%);
-						}
-					}
+					padding: $extra-small/2;
 					a{
 						text-decoration: none;
+						display: block;
+						box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+						img{
+							filter: grayscale(30%);
+							transition: .3s ease-in-out;
+						}
+						&:hover{
+							img{
+								filter: grayscale(0%);
+							}
+						}
 						.meta{
 							display: flex;
 							flex-direction: column;
@@ -688,6 +733,85 @@
 						}
 					}
 				}
+			}
+		}
+	}
+
+	/*
+		d8888b. db       .d88b.   d888b    d8888b.  .d88b.  .d8888. d888888b
+		88  `8D 88      .8P  Y8. 88' Y8b   88  `8D .8P  Y8. 88'  YP `~~88~~'
+		88oooY' 88      88    88 88        88oodD' 88    88 `8bo.      88
+		88~~~b. 88      88    88 88  ooo   88~~~   88    88   `Y8b.    88
+		88   8D 88booo. `8b  d8' 88. ~8~   88      `8b  d8' db   8D    88
+		Y8888P' Y88888P  `Y88P'   Y888P    88       `Y88P'  `8888Y'    YP
+	*/
+
+	&--blogpost{
+		background: #fff;
+		&-first{
+			padding-bottom: 0;
+			h1{
+				color: $quba-red-dark;
+			}
+			hr{
+				background: $quba-red;
+			}
+			p{
+				color: $quba-red;
+			}
+		}
+		&-content{
+			@extend .content;
+			padding-right: 10%;
+		}
+		&-meta{
+			color: $quba-red-dark;
+			.date-and-image{
+				@include responsive(margin-bottom, 0.5);
+			}
+			.date{
+				font-family: $primary-font;
+				@include responsive(font-size, 0.7);
+				line-height: 100%;
+			}
+			.author{
+				font-family: $primary-font;
+				@include responsive(font-size, 0.5);
+				@include responsive(margin-bottom, 0.2);
+				line-height: 100%;
+			}
+			.categories{
+				font-family: $primary-font;
+				@include responsive(font-size, 0.5);
+				line-height: 100%;
+				@include responsive(margin-bottom, 0.5);
+			}
+			hr{
+				background: $quba-red-dark;
+				height: 2px;
+				margin-bottom: 8px;
+				width: 15px;
+			}
+			.author-image{
+				@include responsive(max-height, 2);
+			}
+			p, span{
+				@include responsive(margin-top, 0.5);
+				font-family: $primary-font-light;
+				@include responsive(font-size, 0.7);
+				line-height: 115%;
+			}
+			.estimated-read-time{
+				font-weight: 600;
+				display: block;
+			}
+			input[type=text]{
+				display: block;
+				width: 100%;
+				margin-left: 0;
+			}
+			input[type=button]{
+				float: right;
 			}
 		}
 	}

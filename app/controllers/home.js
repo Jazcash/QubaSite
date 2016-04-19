@@ -35,8 +35,20 @@ router.get("/work", function(req, res, next) {
 	});
 });
 
+router.get("/casestudy", function(req, res, next) {
+	res.render("casestudy", {
+		title: "Quba Site | Case Study",
+	});
+});
+
 router.get("/blog", function(req, res, next) {
 	res.render("blog", {
 		title: "Quba Site | Blog",
+	});
+});
+
+router.get("/blogarticle", function(req, res, next) {
+	res.render("blogarticle", {
+		title: "Quba Site | Blog Post",
 	});
 });

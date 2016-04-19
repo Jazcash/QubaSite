@@ -1,0 +1,6 @@
+a{
+	color: $quba-red;
+	&:hover{
+		color: darken($quba-red, 20%);
+	}
+}

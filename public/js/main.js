@@ -3,11 +3,14 @@ var isHomepage = $(".block--hp-first").length > 0;
 
 $(window).on('scroll touchmove', function(event) {
 	var currentScroll = $(window).scrollTop();
-	(currentScroll > 175) ? $("header").addClass("slim") : $("header").removeClass("slim");
+	(currentScroll > 50) ? $("header").addClass("slim") : $("header").removeClass("slim");
 });
 
 // make content take header height into account as it's position: absolute
-$(".block").eq(0).css("padding-top", $("header").outerHeight());
+$(".block").eq(0).css("padding-top", $("header").outerHeight() * 2);
+$(window).resize(function(){
+	$(".block").eq(0).css("padding-top", $("header").outerHeight() * 2);
+});
 
 // highlight current page in nav
 $(function(){
@@ -158,10 +161,24 @@ if (isHomepage){
 	});
 }
 
+// work page grid
 $(window).load(function(){
 	$('.grid').masonry({
 		itemSelector: '.grid-item',
 		columnWidth: '.grid-sizer',
 		percentPosition: true
+	});
+	$('.grid').masonry("layout");
+});
+
+// burger icon
+$(document).ready(function(){
+	$(".burger").click(function(){
+		$(".menu").addClass("open");
+		$(".quba-logo, .burger").fadeToggle(30);
+	});
+	$(".fa-times").click(function(){
+		$(".menu").removeClass("open");
+		$(".quba-logo, .burger").fadeToggle(30);
 	});
 });

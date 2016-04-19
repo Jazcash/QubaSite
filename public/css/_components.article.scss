@@ -1,0 +1,57 @@
+.content{
+	h1{
+		color: $quba-red;
+	}
+	h2{
+		margin-right: auto;
+		@include responsive(font-size, 1.5);
+		@include responsive(margin-bottom, 0.5);
+		color: $quba-red;
+	}
+	h3{
+		@include responsive(font-size, 1);
+		@include responsive(margin-bottom, 0.5);
+		color: $quba-red;
+	}
+	p{
+		font-family: $primary-font-light;
+		@include responsive(font-size, 0.7);
+		@include breakpoint(s){ font-size: $extra-small; }
+		@include breakpoint(s){ font-size: $extra-small; }
+		@include responsive(margin-bottom, 0.8);
+		line-height: 140%;
+		color: $quba-red-dark;
+		a{
+			color: $quba-red;
+			&:hover{
+				color: darken($quba-red, 15%);
+			}
+		}
+	}
+	li{
+		color: $quba-red-dark;
+		list-style-type: disc;
+		font-family: $primary-font-light;
+		@include responsive(font-size, 0.7);
+		@include breakpoint(s){ font-size: $extra-small; }
+		@include responsive(margin-bottom, 0.35);
+		line-height: 120%;
+	}
+	figure{
+		figcaption{
+			color: $quba-red-dark;
+			text-align: center;
+			margin-top: -15px;
+			@include responsive(margin-bottom, 0.8);
+			a{
+				color: $quba-red;
+				&:hover{
+					color: darken($quba-red, 15%);
+				}
+			}
+		}
+	}
+	img{
+		@include responsive(margin-bottom, 0.8);
+	}
+}
