@@ -19,7 +19,21 @@ header{
     a{
     	display: inline-block;
     	svg{
-    		fill: #fff;
+    		fill: $quba-red;
+    		clip-path: inset(0 0 0 0);
+    		transition: .2s ease-in-out;
+    		&.hover{
+    			position: absolute;
+    			top: 0;
+    			left: 0;
+    			fill: #fff;
+    		}
+    	}
+    	&:hover{
+    		svg.hover{
+    			clip-path: inset(0 0 0 120px);
+    		}
+
     	}
     }
 
@@ -31,16 +45,16 @@ header{
 			list-style-type: none;
 			margin: 0;
 			padding: 0;
-			display: flex;
+			display: flex!important;
 			flex-wrap: wrap;
-			@include breakpoint(l){ display: none; }
+			@include breakpoint(m){ display: none!important; }
 			li{
 				display: flex-inline;
 				a{
 					position: relative;
 					@include responsive(margin-left, 0.5);
 					@include responsive(margin-right, 0.5);
-					font-size: $small;
+					font-size: $extra-small;
 					@include breakpoint(s){ font-size: $extra-small; }
 					color: #fff;
 					text-decoration: none;
@@ -50,7 +64,7 @@ header{
 						bottom: -10px;
 						left: 0;
 						width: 100%;
-						height: 3px;
+						height: 2px;
 						background: #fff;
 						transition: 0.3s ease;
 						opacity: 0;
@@ -77,11 +91,14 @@ header{
 	&.dark{
 		a{
 			color: $quba-red;
+			svg{
+				fill: $quba-red-dark;
+				&.hover{
+					fill: $quba-red;
+				}
+			}
 			&:hover{
 				color: $quba-red;
-			}
-			svg{
-				fill: $quba-red;
 			}
 			&:before{
 				background: $quba-red;
@@ -96,11 +113,16 @@ header{
 		background: rgba($quba-red-dark, 0.95);
 		padding-top: $extra-small + 4px;
 		padding-bottom: $extra-small;
-		//border-bottom: 1px solid rgba(#222, 0.95);
 		a{
 			color: #fff;
+			&:hover{
+				color: #fff;
+			}
 			svg{
-				fill: #fff;
+				fill: $quba-red;
+				&.hover{
+					fill: #fff;
+				}
 			}
 			&:before{
 				background: #fff;
@@ -113,8 +135,8 @@ header{
 
 	.burger{
 		color: #fff;
-		display: none;
-		@include breakpoint(l){ display: inline; }
+		display: none!important;
+		@include breakpoint(m){ display: inline!important; }
 		cursor: pointer;
 		.fa-bars, .fa-times{
 			font-size: $medium;
@@ -129,7 +151,8 @@ header{
 	position: fixed;
 	right: 0;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
+	bottom: 0;
 	background: rgba($quba-red-dark, 0.95);
 	z-index: 25;
 	transition: .15s ease-in-out;

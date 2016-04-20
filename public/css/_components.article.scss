@@ -16,8 +16,7 @@
 	p{
 		font-family: $primary-font-light;
 		@include responsive(font-size, 0.7);
-		@include breakpoint(s){ font-size: $extra-small; }
-		@include breakpoint(s){ font-size: $extra-small; }
+		@include breakpoint(m){ font-size: $extra-small; }
 		@include responsive(margin-bottom, 0.8);
 		line-height: 140%;
 		color: $quba-red-dark;
@@ -33,7 +32,7 @@
 		list-style-type: disc;
 		font-family: $primary-font-light;
 		@include responsive(font-size, 0.7);
-		@include breakpoint(s){ font-size: $extra-small; }
+		@include breakpoint(m){ font-size: $extra-small; }
 		@include responsive(margin-bottom, 0.35);
 		line-height: 120%;
 	}
@@ -41,7 +40,7 @@
 		figcaption{
 			color: $quba-red-dark;
 			text-align: center;
-			margin-top: -15px;
+			margin-top: 0;
 			@include responsive(margin-bottom, 0.8);
 			a{
 				color: $quba-red;

@@ -4,3 +4,36 @@ a{
 		color: darken($quba-red, 20%);
 	}
 }
+
+.animatedLink{
+	color: $quba-red-dark;
+	position: relative;
+	transition: 0.3s ease;
+	text-decoration: none;
+	&:before{
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 3px;
+		left: 0;
+		bottom: -3px;
+		background: $quba-red-dark;
+	}
+	&:after{
+		content: "";
+		position: absolute;
+		width: 0;
+		height: 3px;
+		left: 0;
+		bottom: -3px;
+		background: $quba-red;
+		transition: 0.3s ease;
+	}
+	&:hover, &:active, &:focus{
+		text-decoration: none;
+		color: $quba-red;
+		&:after{
+			width: 100%;
+		}
+	}
+}

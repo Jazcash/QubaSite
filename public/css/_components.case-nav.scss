@@ -38,6 +38,14 @@
 			}
 		}
 	}
+	&-blog{
+		&.prev .case-title:before{
+			content: "Previous Blog Post" !important;
+		}
+		&.next .case-title:before{
+			content: "Next Blog Post" !important;
+		}
+	}
 	.case-icon{
 		display: flex;
 		align-items: center;

@@ -1,15 +1,16 @@
 var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent));
 var isHomepage = $(".block--hp-first").length > 0;
 
+// slim header when scroll down
 $(window).on('scroll touchmove', function(event) {
 	var currentScroll = $(window).scrollTop();
 	(currentScroll > 50) ? $("header").addClass("slim") : $("header").removeClass("slim");
 });
 
 // make content take header height into account as it's position: absolute
-$(".block").eq(0).css("padding-top", $("header").outerHeight() * 2);
+$(".block").eq(0).css("padding-top", $("header").outerHeight());
 $(window).resize(function(){
-	$(".block").eq(0).css("padding-top", $("header").outerHeight() * 2);
+	$(".block").eq(0).css("padding-top", $("header").outerHeight());
 });
 
 // highlight current page in nav
@@ -131,10 +132,12 @@ if (isHomepage){
 	var $contentAbove = $(".block--hp-dexterity");
 	var $overlay = $(".overlay");
 	var $underlay = $(".underlay");
+	var $work = $(".work");
 
 	function updateParallax(currentScroll){
 		if ($content.length) {
-		    $content.height($overlay.outerHeight() + $underlay.height(), 500);
+			$work.css("padding-top", $("header").outerHeight());
+		    $content.height($overlay.outerHeight() + $underlay.height() + $("header").height(), 500);
 
 		    if (($overlay.offset().top <= (currentScroll + $contentAbove.outerHeight())) &&
 		        !($underlay.offset().top + $underlay.outerHeight() <= (currentScroll))) {
@@ -175,10 +178,22 @@ $(window).load(function(){
 $(document).ready(function(){
 	$(".burger").click(function(){
 		$(".menu").addClass("open");
-		$(".quba-logo, .burger").fadeToggle(30);
+		$(".burger").fadeOut(30);
 	});
 	$(".fa-times").click(function(){
 		$(".menu").removeClass("open");
-		$(".quba-logo, .burger").fadeToggle(30);
+		$(".burger").fadeIn(30);
 	});
 });
+
+// blog post meta sticky
+if ($(".block--blogpost-meta").length > 0){
+	$(document).ready(function(){
+		if ($(window).width() > 749){
+			$(".block--blogpost-meta").sticky({
+				topSpacing: 125,
+				bottomSpacing: $(document).height() - $(".block--blogpost-content").children().last().offset().top - $(".block--blogpost-content").children().last().outerHeight()
+			});
+		}
+	});
+}

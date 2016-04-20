@@ -52,3 +52,9 @@ router.get("/blogarticle", function(req, res, next) {
 		title: "Quba Site | Blog Post",
 	});
 });
+
+router.get("/contact", function(req, res, next){
+	res.render("contact", {
+		title: "Quba Site | Contact",
+	})
+});

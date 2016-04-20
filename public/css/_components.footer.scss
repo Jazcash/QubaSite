@@ -2,13 +2,13 @@
 	Footer
 \*------------------------------------*/
 
-.block--contact{
+.block--footer{
 	background: #fff;
 	display: flex;
 	justify-content: space-between;
 	flex-direction: row;
 	color: $quba-red-dark;
-    border-top: 3px solid $quba-red-dark;
+    //border-top: 3px solid $quba-red-dark;
     background: #eee;
 	& > div{
 		display: flex;

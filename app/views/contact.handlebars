@@ -1,0 +1,98 @@
+{{> header}}
+
+<section class="block block--fullscreen colour--quba-red">
+	<div class="block__centre">
+		<h1>Give us a bell</h1>
+		<hr/>
+		<p>
+			If you've got a project you'd like to talk to us about, we'd love to hear from you. We'll stick the kettle on.
+		</p>
+	</div>
+	<div class="block-background" style="background-image: url('/img/sections/compressedJpgs/belgravia.jpg');"></div>
+</section>
+
+<section class="block block--contact">
+	<h3>Contact info</h3>
+	<hr/>
+	<div class="row">
+		<div class="col col-12 sm-col-6" style="padding-right: 10%">
+			<p>
+				0114 279 7779
+				<br/>
+				<br/>
+				If you want to find out what work we've done or tell us about a project you have, give us a call.
+			</p>
+		</div>
+		<div class="col col-12 sm-col-3" style="padding-right: 5%">
+			<p>
+				Belgravia House<br/>
+				115 Rockingham Street<br/>
+				Sheffield<br/>
+				S1 4EB<br/><br/>
+				<a href="#">View in Google Maps</a>
+			</p>
+		</div>
+		<div class="col col-12 sm-col-3">
+			<p>
+				New clients<br/>
+				<a href="#">enquiries@quba.co.uk</a><br/><br/>
+				Careers<br/>
+				<a href="#">jobs@quba.co.uk</a><br/><br/>
+				General<br/>
+				<a href="#">hello@quba.co.uk</a>
+			</p>
+		</div>
+	</div>
+</section>
+
+<div id="dvGoogleMapsAndResults" class="google-maps-wrapper cf">
+    <div class="google-maps-wrapper">
+        <div class="event-google-map" id="map-canvas">
+        </div>
+    </div>
+</div>
+
+{{> footer}}
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+    function initialize() {
+        var styles = [{ "featureType": "all", "elementType": "all", "stylers": [{ "saturation": -100 }, { "gamma": 0.5 }, { "lightness": -50 }] }];
+
+        var styledMap = new google.maps.StyledMapType(styles,{ name: "Styled Map" });
+
+        var myLatLng = { lat: 53.3807099, lng: -1.4754792 };
+
+        var mapOptions = {
+            zoom: 17,
+            minZoom: 1,
+            scrollwheel: false,
+            center: myLatLng,
+            mapTypeControlOptions: {
+                mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+            }
+        };
+        var mapcontainer = $('#map-canvas')[0];
+        window.map = new google.maps.Map(mapcontainer, mapOptions);
+
+        google.maps.event.addDomListener(window, "resize", function () {
+            var center = map.getCenter();
+            google.maps.event.trigger(map, "resize");
+            map.setCenter(center);
+        });
+
+        map.mapTypes.set('map_style', styledMap);
+        map.setMapTypeId('map_style');
+
+        addMarker(myLatLng);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    function addMarker(myLatLng) {
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            icon: '/img/misc/marker.png',
+            map: map
+        });
+    }
+</script>

@@ -8,10 +8,18 @@ input[type=text]{
 	border-bottom: solid 1px $quba-red-dark;
 	margin: $extra-small;
 	font-family: $primary-font-light;
+	@include breakpoint(m){ font-size: $extra-small; }
 	&:hover, &:focus{
 		outline: none;
 		border-bottom-color: $quba-red;
 	}
+	&::placeholder{
+		@include breakpoint(m){ font-size: $extra-small; }
+	}
+}
+
+::-webkit-input-placeholder{
+	@include breakpoint(m){ font-size: $extra-small; }
 }
 
 input[type=button]{
@@ -24,6 +32,7 @@ input[type=button]{
 	padding-right: 15px;
 	color: #fff;
 	font-family: $primary-font-light;
+	@include breakpoint(m){ font-size: $extra-small; }
 	&:hover{
 		background: darken($quba-red, 20%);
 	}
