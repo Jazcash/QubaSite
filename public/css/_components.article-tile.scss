@@ -1,9 +1,12 @@
 .article-tile{
+	width: 100%;
 	background: #fff;
 	h3{
 		margin-bottom: $small;
 	}
 	ul{
+		width: 100%;
+		height: 100%;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: flex-start;
@@ -15,6 +18,7 @@
 			transition: .3s ease-in-out;
 			padding: $extra-small/2;
 			a{
+				width: 100%;
 				background: darken($quba-red, 10%);
 				text-decoration: none;
 				display: block;

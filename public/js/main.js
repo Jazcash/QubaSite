@@ -1,4 +1,5 @@
 var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent));
+var isIE = /(MSIE|Trident\/|Edge\/)/i.test(navigator.userAgent);
 var isHomepage = $(".block--hp-first").length > 0;
 
 // slim header when scroll down
@@ -14,12 +15,10 @@ $(window).resize(function(){
 });
 
 // highlight current page in nav
-$(function(){
-	var pageName = window.location.pathname;
-	$("header li a").each(function(element){
-		if ($(this).attr("href") == pageName)
-			$(this).addClass("active");
-	});
+var pageName = window.location.pathname;
+$("header li a").each(function(element){
+	if ($(this).attr("href") == pageName)
+		$(this).addClass("active");
 });
 
 /* CHEVRON IN FIRST HOMEPAGE SECTION */
@@ -178,33 +177,33 @@ $(window).load(function(){
 });
 
 // burger icon
-$(document).ready(function(){
-	$(".burger").click(function(){
-		$(".menu").addClass("open");
-		$(".menu li").each(function(i, element){
-			setTimeout(function(){
-				$(element).addClass("fadeInLeft");
-			}, i * 100);
-		});
-		$(".burger").fadeOut(30);
+$(".burger").click(function(){
+	$(".menu").addClass("open");
+	$(".menu li").each(function(i, element){
+		setTimeout(function(){
+			$(element).addClass("fadeInLeft");
+		}, i * 100);
 	});
-	$(".fa-times").click(function(){
-		$(".menu").removeClass("open");
-		$(".menu li").each(function(i, element){
-			$(element).removeClass("fadeInLeft");
-		});
-		$(".burger").fadeIn(30);
+	$(".burger").fadeOut(30);
+});
+$(".fa-times").click(function(){
+	$(".menu").removeClass("open");
+	$(".menu li").each(function(i, element){
+		$(element).removeClass("fadeInLeft");
 	});
+	$(".burger").fadeIn(30);
 });
 
 // blog post meta sticky
 if ($(".block--blogpost-meta").length > 0){
-	$(document).ready(function(){
-		if ($(window).width() > 749){
-			$(".block--blogpost-meta").sticky({
-				topSpacing: 125,
-				bottomSpacing: $(document).height() - $(".block--blogpost-content").children().last().offset().top - $(".block--blogpost-content").children().last().outerHeight()
-			});
-		}
-	});
+	if ($(window).width() > 749){
+		$(".block--blogpost-meta").sticky({
+			topSpacing: 125,
+			bottomSpacing: $(document).height() - $(".block--blogpost-content").children().last().offset().top - $(".block--blogpost-content").children().last().outerHeight()
+		});
+	}
 }
+
+var wordcount = $(".block--blogpost-content").text().split(" ").length;
+$(".wordcount").text(wordcount);
+$(".esttime").text(Math.round(wordcount / 200));
