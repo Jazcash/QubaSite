@@ -6,7 +6,7 @@
 	color: #fff;
 	z-index: 10;
 	transition: 0.75s ease-in-out;
-	max-width: 40%;
+	max-width: 80%;
 	@include breakpoint(m){ max-width: 75%; }
 	@include breakpoint(s){ max-width: 95%; }
 	&.prev{
@@ -15,9 +15,10 @@
 		flex-direction: row-reverse;
 		transform: translateY(-50%) translateX(-100%) translateX($medium);
 		.case-title{
-			text-align: right;
+			text-align: left;
 			&:before{
-				content: "Previous Case Study";
+				text-transform: uppercase;
+				content: "Previous Case";
 			}
 		}
 		.case-image{
@@ -33,17 +34,19 @@
 			margin-left: auto;
 		}
 		.case-title{
+			text-align: right;
 			&:before{
-				content: "Next Case Study";
+				text-transform: uppercase;
+				content: "Next Case";
 			}
 		}
 	}
 	&-blog{
 		&.prev .case-title:before{
-			content: "Previous Blog Post" !important;
+			content: "Previous Post" !important;
 		}
 		&.next .case-title:before{
-			content: "Next Blog Post" !important;
+			content: "Next Post" !important;
 		}
 	}
 	.case-icon{

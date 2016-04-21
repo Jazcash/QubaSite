@@ -1,15 +1,20 @@
 .content{
+	& > :first-child{
+		margin-top: 0;
+	}
 	h1{
 		color: $quba-red;
 	}
 	h2{
 		margin-right: auto;
 		@include responsive(font-size, 1.5);
+		@include responsive(margin-top, 2);
 		@include responsive(margin-bottom, 0.5);
 		color: $quba-red;
 	}
 	h3{
 		@include responsive(font-size, 1);
+		@include responsive(margin-top, 1);
 		@include responsive(margin-bottom, 0.5);
 		color: $quba-red;
 	}

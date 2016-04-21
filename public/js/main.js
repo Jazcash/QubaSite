@@ -130,6 +130,7 @@ if (isHomepage){
 	/* OUR WORK OVERLAY/UNDERLAY */
 	var $content = $(".block--hp-our-work");
 	var $contentAbove = $(".block--hp-dexterity");
+	var $ourClients = $(".block--hp-current-clients");
 	var $overlay = $(".overlay");
 	var $underlay = $(".underlay");
 	var $work = $(".work");
@@ -142,6 +143,7 @@ if (isHomepage){
 		    if (($overlay.offset().top <= (currentScroll + $contentAbove.outerHeight())) &&
 		        !($underlay.offset().top + $underlay.outerHeight() <= (currentScroll))) {
 		        $underlay.addClass('show');
+		    	$ourClients.css("z-index", "-10");
 		    } else {
 		        $underlay.removeClass('show');
 		    };
@@ -151,6 +153,7 @@ if (isHomepage){
 		        $underlay.addClass('show');
 		    } else {
 		        $underlay.removeClass('return-scroll');
+		        $ourClients.css("z-index", "0");
 		    };
 		}
 	}
@@ -178,10 +181,18 @@ $(window).load(function(){
 $(document).ready(function(){
 	$(".burger").click(function(){
 		$(".menu").addClass("open");
+		$(".menu li").each(function(i, element){
+			setTimeout(function(){
+				$(element).addClass("fadeInLeft");
+			}, i * 100);
+		});
 		$(".burger").fadeOut(30);
 	});
 	$(".fa-times").click(function(){
 		$(".menu").removeClass("open");
+		$(".menu li").each(function(i, element){
+			$(element).removeClass("fadeInLeft");
+		});
 		$(".burger").fadeIn(30);
 	});
 });

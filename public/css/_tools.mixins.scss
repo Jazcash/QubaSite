@@ -135,11 +135,14 @@ Create a CSS transition
 		border-color: $textColour;
 		color: $textColour;
 		&:after{
-			background: $textColour;
+			background-color: $textColour;
 		}
 	}
+	&.block--hp{
+		background-color: $backgroundColour;
+	}
 	&:not(.block--fullscreen).block--about:not(.block--about-first){
-		background: $backgroundColour;
+		background-color: $backgroundColour;
 	}
 	&.block--services:not(.block--services-first){
 		li{
@@ -160,7 +163,7 @@ Create a CSS transition
 		}
 	}
 	.block--casestudy-testimony{
-		background: $backgroundColour;
+		background-color: $backgroundColour;
 		blockquote{
 			color: #fff;
 			footer{

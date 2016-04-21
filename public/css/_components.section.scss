@@ -16,6 +16,9 @@
 		& + hr{
 			@include responsive(margin-top, 1.5);
 			@include responsive(margin-bottom, 1);
+			& + p{
+				font-family: $primary-font;
+			}
 		}
 	}
 	h2{
@@ -28,13 +31,12 @@
 	h3{
 		@include responsive(font-size, 2);
 		& + hr{
-			@include responsive(margin-top, 1);
+			@include responsive(margin-top, 2);
 			@include responsive(margin-bottom, 1);
-			background: $quba-red;
 		}
 	}
 	h4{
-		@include responsive(font-size, 1);
+		@include responsive(font-size, 1.25);
 		@include breakpoint(m){ font-size: $small/1.2; }
 	}
 	h5{
@@ -45,6 +47,15 @@
 		@include responsive(font-size, 1.1);
 		@include responsive(line-height, 1.35);
 	}
+
+	/*
+		.88b  d88. d888888b .d8888.  .o88b.
+		88'YbdP`88   `88'   88'  YP d8P  Y8
+		88  88  88    88    `8bo.   8P
+		88  88  88    88      `Y8b. 8b
+		88  88  88   .88.   db   8D Y8b  d8
+		YP  YP  YP Y888888P `8888Y'  `Y88P'
+	*/
 
 	&--fullscreen{
 		height: 100vh;
@@ -97,15 +108,17 @@
 					margin-bottom: 10px;
 					font-family: $primary-font;
 					transition: .3s ease;
+					text-align: center;
 				}
 				p{
 					line-height: $extra-small;
 					color: #fff;
 					font-family: $primary-font-light;
 					font-style: italic;
-					@include responsive(font-size, 0.5);
+					@include responsive(font-size, 0.6);
 					@include breakpoint(m){ font-size: $extra-small/1.2; }
 					transition: .3s ease;
+					text-align: center;
 				}
 			}
 			&:not(.see-more){
@@ -127,6 +140,48 @@
 					.tile-centre h4,
 					.tile-centre p{
 						color: #333;
+					}
+				}
+			}
+		}
+	}
+
+	&.logos{
+		ul{
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			width: 100%;
+			li{
+				margin: auto;
+				width: 25%;
+				@include breakpoint(m){ width: 50%; }
+				margin-bottom: $small;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				img{
+					@include responsive(max-height, 1.5);
+					transition: opacity 0.3s ease;
+					-webkit-backface-visibility: hidden;
+				}
+				img[src*='chatsworth']{
+					@include responsive(max-height, 2);
+				}
+			}
+			&:hover{
+				a{
+					img{
+						opacity: 0.5;
+					}
+					&:hover{
+						img{
+							opacity: 1;
+						}
 					}
 				}
 			}
@@ -157,19 +212,20 @@
 			flex-direction: column;
 			overflow: hidden;
 			padding: 0;
-			background-color: rgba(70, 15, 19, 0.7);
+			background-color: rgba(70, 15, 19, 1);
 			background-size: cover;
 			background-position: center center;
 			background-repeat: none;
-			&:before{
+			z-index: 1;
+			&:after{
 				content: "";
 				position: absolute;
 				width: 100%;
 				height: 100%;
 				left: 0;
 				top: 0;
-				background: rgba(70, 15, 19, 1);
-				z-index: -3;
+				background: rgba(70, 15, 19, 0.7);
+				z-index: -1;
 			}
 			hr{
 				height: 6px;
@@ -193,54 +249,21 @@
 			}
 		}
 		&-current-clients{
-			background: $crimson;
+			position: fixed;
+			width: 100%;
+			height: 100vh;
+			top: 0;
+			left: 0;
+			z-index: 0;
 			h3{
-				color: $cream;
-				@include responsive(margin-bottom, 1);
+				@include responsive(margin-bottom, 1.5);
 				text-align: center;
 			}
-			ul{
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: space-between;
-				width: 100%;
-				li{
-					margin: auto;
-					width: 25%;
-					@include breakpoint(l){ width: 33.33%; }
-					@include breakpoint(m){ width: 50%; }
-					margin-bottom: $small;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					a{
-						display: block;
-						img{
-							@include responsive(max-height, 1.5);
-							transition: opacity 0.3s ease;
-							-webkit-backface-visibility: hidden;
-						}
-						img[src*='chatsworth']{
-							@include responsive(max-height, 2);
-						}
-					}
-				}
-				&:hover{
-					a{
-						img{
-							opacity: 0.5;
-						}
-						&:hover{
-							img{
-								opacity: 1;
-							}
-						}
-					}
-				}
-			}
+			@extend .block.logos;
+		}
+		&-current-clients-gap{
+			height: 60vh;
+			pointer-events: none;
 		}
 		&-dexterity{
 			z-index: 10;
@@ -257,15 +280,10 @@
 				background-color: rgba(113,82,60, 0.8);
 			}
 			h2{
-				color: $beige;
 				width: 60%;
-			}
-			hr{
-				background: $beige;
 			}
 			p{
 				width: 60%;
-				color: $beige;
 			}
 			@include breakpoint(s){
 				h2{
@@ -338,7 +356,6 @@
 			padding: 0;
 		}
 		&-our-partners{
-			background: $nevada;
 			position: fixed;
 			width: 100%;
 			max-width: 100%;
@@ -351,38 +368,14 @@
 			align-items: center;
 			justify-content: center;
 			h3{
-				color: $anakiwa;
 				text-align: center;
-				@include responsive(margin-bottom, 1);
+				@include responsive(margin-bottom, 1.5);
 			}
-			ul{
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: space-between;
-				width: 100%;
-				li{
-					margin: auto;
-					width: 25%;
-					@include breakpoint(l){ width: 33.33%; }
-					@include breakpoint(m){ width: 50%; }
-					margin-bottom: $medium;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					img{
-						@include responsive(max-height, 1.4);
-						transition: opacity 0.3s ease;
-						-webkit-backface-visibility: hidden;
-					}
-				}
-			}
+			@extend .block.logos;
 		}
 		&-commercial-ability{
 			overflow: hidden;
-			background-color: rgba(70, 15, 19, 0.7);
+			background-color: rgba(70, 15, 19, 0.7) !important;
 			background-size: cover;
 			background-position: center center;
 			background-repeat: none;
@@ -506,12 +499,9 @@
 			flex-wrap: wrap;
 			//height: 100vh;
 
-			h2, p, a{
-				@include responsive(width, 15);
-			}
-
 			p{
 				@include responsive(margin-bottom, 2);
+				@include responsive(padding-right, 2);
 			}
 			li{
 				@include responsive(font-size, 0.9);
@@ -560,7 +550,7 @@
 			align-items: center;
 			li{
 				list-style-type: none;
-				margin: 20px;
+				margin: $medium;
 				img{
 					@include responsive(max-height, 2.5);
 					image-rendering: -moz-crisp-edges;
@@ -585,7 +575,7 @@
 		background: #fff;
 		h1{
 			color: $quba-red-dark;
-			@include responsive(margin-top, 1.5);
+			@include responsive(margin-top, 2.5);
 			@include responsive(margin-bottom, 2);
 		}
 		ul{
@@ -604,14 +594,18 @@
 				width: 25%;
 				padding: 0.5%;
 				float: left;
+				@include breakpoint(s){ width: 100%; }
 				&:nth-child(3n-1){
 					width: 50%;
+					@include breakpoint(s){ width: 100%; }
 				}
 				&:nth-child(6n){
 					left: 25% !important;
+					@include breakpoint(s){ left: 0% !important; }
 				}
 				&:nth-child(6n+1){
 					left: 0% !important;
+					@include breakpoint(s){ left: 0% !important; }
 				}
 			}
 		}
@@ -642,12 +636,30 @@
 		}
 		&-testimony{
 			blockquote{
-				@include responsive(width, 20);
+				width: 80%;
 				text-align: center;
 				@include responsive(font-size, 0.9);
 				@include breakpoint(s){ font-size: $extra-small; }
+				line-height: 130%;
+				font-style: italic;
 				footer{
 					margin-top: $medium;
+					font-style: normal;
+					font-family: $primary-font-light;
+					@include responsive(font-size, 0.7);
+					@include breakpoint(s){ font-size: $extra-small; }
+				}
+			}
+		}
+		&-cases{
+			background: #fff;
+			text-align: center;
+			ul{
+				display: flex;
+				@include responsive(margin-top, 1);
+				@include breakpoint(m){ flex-direction: column }
+				li{
+					margin: $small;
 				}
 			}
 		}
@@ -666,7 +678,7 @@
 		background: #fff;
 		h1{
 			color: $quba-red-dark;
-			@include responsive(margin-top, 1.5);
+			@include responsive(margin-top, 2.5);
 			@include responsive(margin-bottom, 2);
 		}
 		.filters{
@@ -703,10 +715,20 @@
 	&--blogpost{
 		background: #fff;
 		padding-bottom: 0;
+		@include responsive(padding-left, 5);
+		@include responsive(padding-right, 5);
+		@include breakpoint(s){
+			padding-left: $large;
+			padding-right: $large;
+		}
 		&-first{
 			padding-bottom: 0;
+			text-align: center;
 			h1{
 				color: $quba-red-dark;
+				font-family: $primary-font-light;
+				@include responsive(font-size, 3.5);
+				@include responsive(margin-top, 2.5);
 			}
 			hr{
 				background: $quba-red;
