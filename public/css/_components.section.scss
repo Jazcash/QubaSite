@@ -47,10 +47,16 @@
 	h4{
 		width: 100%;
 		@include responsive(font-size, 1.25);
+		@include breakpoint(s){
+			font-size: $small;
+		}
 	}
 	h5{
 		width: 100%;
-		@include responsive-font(s);
+		@include responsive(font-size, 1.25);
+		@include breakpoint(s){
+			font-size: $small;
+		}
 	}
 	p{
 		width: 100%;
@@ -435,7 +441,6 @@
 			h3{
 				margin-bottom: 5px;
 				color: #fff;
-				@include responsive(font-size, 1);
 			}
 			h2, h3, h4, h5, p{
 				text-align: center;
@@ -484,12 +489,12 @@
 					margin-top: $large;
 				}
 			}
-			//height: 100vh;
 			p{
 				@include responsive(margin-bottom, 2);
 				@include responsive(padding-right, 2);
 			}
 			li{
+				margin-left: 15px;
 				list-style-type: none;
 				@include responsive-font(s);
 				@include responsive(margin-bottom, 0.5);
@@ -549,7 +554,7 @@
 	`8b d8'8b d8' `8b  d8' 88 `88. 88 `88.
 	 `8b8' `8d8'   `Y88P'  88   YD YP   YD
 */
-	&--work-overview{
+	&--work{
 		background: #fff;
 		h1{
 			color: $quba-red-dark;
@@ -806,9 +811,12 @@
 			text-align: left;
 			color: $quba-red;
 		}
+		hr{
+			background: $quba-red;
+		}
 		p{
 			line-height: 115%;
-			@include responsive(font-size, 0.7);
+			@include responsive-font(s);
 		}
 	}
 }

@@ -8,13 +8,13 @@
 	h2{
 		margin-right: auto;
 		color: $quba-red;
-		@include responsive(font-size, 1.5);
+		@include responsive-font(l);
 		@include responsive(margin-top, 2);
 		@include responsive(margin-bottom, 0.5);
 	}
 	h3{
 		color: $quba-red;
-		@include responsive(font-size, 1);
+		@include responsive-font(m);
 		@include responsive(margin-top, 1);
 		@include responsive(margin-bottom, 0.5);
 	}
@@ -22,10 +22,7 @@
 		font-family: $primary-font-light;
 		line-height: 140%;
 		color: $quba-red-dark;
-		@include responsive(font-size, 0.7);
-		@include breakpoint(m){
-			font-size: $extra-small;
-		}
+		@include responsive-font(s);
 		@include responsive(margin-bottom, 0.8);
 		a{
 			color: $quba-red;

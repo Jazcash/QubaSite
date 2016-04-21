@@ -5,6 +5,10 @@ var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
 	responsive = require('gulp-responsive'),
+	cssnano = require('gulp-cssnano'),
+	concat = require('gulp-concat'),
+	uglify = require('gulp-uglify'),
+	rename = require('gulp-rename'),
 	sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('sass', function () {
@@ -16,8 +20,18 @@ gulp.task('sass', function () {
 			browsers: ['last 2 versions'],
 			cascade: false
 		}))
+		.pipe(cssnano())
+		.pipe(rename({ suffix: '.min' }))
 		.pipe(sourcemaps.write('../maps'))
-		.pipe(gulp.dest('./public/css'))
+		.pipe(gulp.dest('./public/build'))
+		.pipe(livereload());
+});
+
+gulp.task('scripts', function(){
+	gulp.src(['./public/js/main.js', './public/js/*.js'])
+		.pipe(concat('script.min.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('./public/build'))
 		.pipe(livereload());
 });
 
@@ -38,6 +52,7 @@ gulp.task('images', function(){
 
 gulp.task('watch', function() {
 	gulp.watch('./public/css/*.scss', ['sass']);
+	gulp.watch('./public/js/*.js', ['scripts']);
 });
 
 gulp.task('develop', function () {
@@ -59,6 +74,7 @@ gulp.task('develop', function () {
 
 gulp.task('default', [
 	'sass',
+	'scripts',
 	'images',
 	'develop',
 	'watch'
