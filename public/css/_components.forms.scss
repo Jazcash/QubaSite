@@ -3,39 +3,47 @@
 \*------------------------------------*/
 
 input[type=text]{
-	border: none;
-	padding: $extra-small/2;
-	border-bottom: solid 1px $quba-red-dark;
 	margin: $extra-small;
+	padding: $extra-small/2;
 	font-family: $primary-font-light;
+	border: none;
+	border-bottom: solid 1px $quba-red-dark;
 	@include responsive(font-size, 0.7);
-	@include breakpoint(m){ font-size: $extra-small; }
+	@include breakpoint(m){
+		font-size: $extra-small;
+	}
 	&:hover, &:focus{
-		outline: none;
 		border-bottom-color: $quba-red;
+		outline: none;
 	}
 	&::placeholder{
 		@include responsive(font-size, 0.7);
-		@include breakpoint(m){ font-size: $extra-small; }
+		@include breakpoint(m){
+			font-size: $extra-small;
+		}
 	}
 }
 
 ::-webkit-input-placeholder{
-	@include breakpoint(m){ font-size: $extra-small; }
+	@include breakpoint(m){
+		font-size: $extra-small;
+	}
 }
 
 input[type=button]{
-	background: $quba-red;
-	border: none;
-	outline: none;
 	padding-top: 10px;
+	padding-right: 15px;
 	padding-bottom: 5px;
 	padding-left: 15px;
-	padding-right: 15px;
-	color: #fff;
 	font-family: $primary-font-light;
-	transition: .2s ease-in-out;
-	@include breakpoint(m){ font-size: $extra-small; }
+	color: #fff;
+	border: none;
+	outline: none;
+	background: $quba-red;
+	transition: 0.2s ease-in-out;
+	@include breakpoint(m){
+		font-size: $extra-small;
+	}
 	&:hover{
 		background: darken($quba-red, 20%);
 	}

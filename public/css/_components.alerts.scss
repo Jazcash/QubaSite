@@ -2,26 +2,26 @@
 	Alerts
 \*------------------------------------*/
 
-.alert {
+.alert{
 	margin: 0 0 $spacing;
 	padding: $spacing;
-	background: $primary;
+	-webkit-font-smoothing: antialiased;
 	color: darken($primary, 60%);
 	border-radius: $border-radius;
-	-webkit-font-smoothing: antialiased;
+	background: $primary;
 }
 
-.alert--info {
-	background: lighten($info, 50%);
+.alert--info{
 	color: $info;
+	background: lighten($info, 50%);
 }
 
-.alert--success {
-	background: lighten($success, 50%);
+.alert--success{
 	color: $success;
+	background: lighten($success, 50%);
 }
 
-.alert--warning {
-	background: lighten($warning, 40%);
+.alert--warning{
 	color: $warning;
+	background: lighten($warning, 40%);
 }

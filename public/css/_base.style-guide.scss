@@ -2,23 +2,23 @@
 	Style guide
 \*------------------------------------*/
 
-.swatch {
-	height: 160px;
+.swatch{
 	display: table;
 	width: 100%;
+	height: 160px;
 	margin-bottom: $primary-font;
 }
 
-.swatch__meta {
+.swatch__meta{
 	display: table-cell;
+	font-family: $alt-font;
 	text-align: center;
 	vertical-align: middle;
-	font-family: $alt-font;
-	@include font-size(14px);
 	color: #fff;
+	@include font-size(14px);
 }
 
-.swatch__hex {
+.swatch__hex{
 	display: block;
 	font-family: $primary-font;
 }
@@ -28,7 +28,15 @@
 /**
  * Colours
  */
-.swatch--primary { background: $primary; }
-.swatch--secondary { background: $secondary; }
-.swatch--greentea { background: $greentea; }
-.swatch--ripe-orange { background: $ripe-orange; }
+.swatch--primary{
+	background: $primary;
+}
+.swatch--secondary{
+	background: $secondary;
+}
+.swatch--greentea{
+	background: $greentea;
+}
+.swatch--ripe-orange{
+	background: $ripe-orange;
+}

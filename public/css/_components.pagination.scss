@@ -2,25 +2,24 @@
 	Pagination
 \*------------------------------------*/
 
-.pagination {
+.pagination{
 	margin: $spacing 0;
 	padding: 0;
 }
 
-.pagination li {
+.pagination li{
 	display: inline-block;
 	list-style: none;
 }
 
-.pagination li a {
+.pagination li a{
 	padding: $spacing-small $spacing;
-
-	&:hover {
-		background: #ddd;
+	&:hover{
 		text-decoration: none;
+		background: #ddd;
 	}
 }
 
-.pagination li.current a {
+.pagination li.current a{
 	background: #eee;
 }

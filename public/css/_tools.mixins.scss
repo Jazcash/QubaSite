@@ -8,7 +8,7 @@
 * Example usage:
 * @include font-size(14px)
 */
-@mixin font-size($size) {
+@mixin font-size($size){
 	font-size: $size;
 	font-size: ($size / $base-font-size) * 1rem;
 }
@@ -33,25 +33,31 @@
 * Example usage:
 * @include breakpoint(s) { // css }
 */
-@mixin breakpoint($size) {
-	@if $size == xl {
-		@media screen and (max-width: $break-xl) { @content; }
+@mixin breakpoint($size){
+	@if $size == xl{
+		@media screen and (max-width: $break-xl){
+			@content;
+		}
 	}
-
-	@if $size == l {
-		@media screen and (max-width: $break-l) { @content; }
+	@if $size == l{
+		@media screen and (max-width: $break-l){
+			@content;
+		}
 	}
-
-	@if $size == m {
-		@media screen and (max-width: $break-m) { @content; }
+	@if $size == m{
+		@media screen and (max-width: $break-m){
+			@content;
+		}
 	}
-
-	@if $size == s {
-		@media screen and (max-width: $break-s) { @content; }
+	@if $size == s{
+		@media screen and (max-width: $break-s){
+			@content;
+		}
 	}
-
-	@if $size == xs {
-		@media screen and (max-width: $break-xs) { @content; }
+	@if $size == xs{
+		@media screen and (max-width: $break-xs){
+			@content;
+		}
 	}
 }
 
@@ -62,8 +68,10 @@
 * Example usage:
 * @include below(200px) { // css }
 */
-@mixin below($size) {
-	@media screen and (max-width: $size) { @content; }
+@mixin below($size){
+	@media screen and (max-width: $size){
+		@content;
+	}
 }
 
 
@@ -73,8 +81,10 @@
 * Example usage:
 * @include above(200px) { // css }
 */
-@mixin above($size) {
-	@media screen and (min-width: $size) { @content; }
+@mixin above($size){
+	@media screen and (min-width: $size){
+		@content;
+	}
 }
 
 
@@ -84,11 +94,11 @@ Create a CSS transition
 * @example @include transition(background 0.5s linear);
 * @group global
 */
-@mixin transition($transition) {
+@mixin transition($transition){
 	-webkit-transition: $transition;
-	-moz-transition: $transition;
-	-o-transition: $transition;
-	transition: $transition;
+	   -moz-transition: $transition;
+	     -o-transition: $transition;
+	        transition: $transition;
 }
 
 
@@ -101,11 +111,11 @@ Create a CSS transition
  * 		@extend %clearfix;
  * }
  */
-%clearfix {
-	&:after {
-		content: "";
+%clearfix{
+	&:after{
 		display: table;
 		clear: both;
+		content: "";
 	}
 }
 
@@ -113,16 +123,16 @@ Create a CSS transition
 
 /* for full size backgrounds */
 .fillArea{
-	content: "";
 	position: absolute;
-	width: 100%;
-	height: 100%;
 	top: 0;
 	left: 0;
+	width: 100%;
+	height: 100%;
+	content: "";
 }
 
 @mixin theme($textColour, $backgroundColour){
-	h1,h2,h3,h4,h5,h6,p,a,li,span{
+	h1, h2, h3, h4, h5, h6, p, a, li, span{
 		color: $textColour;
 	}
 	hr{
@@ -132,8 +142,8 @@ Create a CSS transition
 		color: darken($textColour, 20%);
 	}
 	.btn{
-		border-color: $textColour;
 		color: $textColour;
+		border-color: $textColour;
 		&:after{
 			background-color: $textColour;
 		}
@@ -149,17 +159,17 @@ Create a CSS transition
 			color: #fff;
 		}
 		.block-background:after{
-			@extend .fillArea;
 			background: linear-gradient(to left,
-				rgba($backgroundColour, 0.6) 0%,
-				rgba($backgroundColour, 1) 100%
+			rgba($backgroundColour, 0.6) 0%,
+			rgba($backgroundColour, 1) 100%
 			);
+			@extend .fillArea;
 		}
 	}
 	&.block--tech:not(.block--tech-first){
 		.block-background:after{
-			@extend .fillArea;
 			background-color: rgba($backgroundColour, 0.4);
+			@extend .fillArea;
 		}
 	}
 	.block--casestudy-testimony{
@@ -175,26 +185,26 @@ Create a CSS transition
 
 
 @mixin responsive-font($size){
-	@if $size == xl {
-
+	@if $size == xl{
 	}
-
-	@if $size == l {
-
+	@if $size == l{
 	}
-
-	@if $size == m {
+	@if $size == m{
 		@include responsive(font-size, 1.1);
-		@include breakpoint(m){ font-size: $small; }
+		@include breakpoint(m){
+			font-size: $small;
+		}
 	}
-
-	@if $size == s {
+	@if $size == s{
 		@include responsive(font-size, 0.9);
-		@include breakpoint(m){ font-size: $extra-small / 0.85; }
+		@include breakpoint(m){
+			font-size: $extra-small / 0.85;
+		}
 	}
-
-	@if $size == xs {
+	@if $size == xs{
 		@include responsive(font-size, 0.7);
-		@include breakpoint(m){ font-size: $extra-small; }
+		@include breakpoint(m){
+			font-size: $extra-small;
+		}
 	}
 }

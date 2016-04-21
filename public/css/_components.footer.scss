@@ -3,41 +3,39 @@
 \*------------------------------------*/
 
 .block--footer{
-	background: #fff;
 	display: flex;
-	justify-content: space-between;
 	flex-direction: row;
+	justify-content: space-between;
 	color: $quba-red-dark;
-    //border-top: 3px solid $quba-red-dark;
-    background: #eee;
+	background: #fff;
+	background: #eee;
 	& > div{
 		display: flex;
 		flex-direction: column;
 	}
 	h2{
-		color: $quba-red-dark;
 		margin: 0;
-		& + hr{
-			//@include responsive(margin-bottom, 1);
-		}
+		color: $quba-red-dark;
 	}
 	hr{
-        margin: 0;
 		height: 6px;
+		margin: 0;
 		margin-bottom: 6vh;
-		@include responsive(width, 5);
 		text-align: left;
 		background: $quba-red-dark;
+		@include responsive(width, 5);
 	}
 	span{
-		@include responsive(font-size, 1.1);
-		@include breakpoint(s){ font-size: $extra-small; }
-		@include responsive(margin-bottom, 1);
 		color: $quba-red-dark;
+		@include responsive(font-size, 1.1);
+		@include breakpoint(s){
+			font-size: $extra-small;
+		}
+		@include responsive(margin-bottom, 1);
 	}
-    .meta-info{
-        @include responsive(font-size, 0.7);
-    }
+	.meta-info{
+		@include responsive(font-size, 0.7);
+	}
 	a{
 		@extend .animatedLink;
 	}
@@ -47,7 +45,9 @@
 		.social-icons{
 			@include responsive(margin-bottom, 1);
 			@include responsive(font-size, 1.5);
-			@include breakpoint(s){ font-size: $extra-small; }
+			@include breakpoint(s){
+				font-size: $extra-small;
+			}
 			a:before{
 				background: transparent;
 			}

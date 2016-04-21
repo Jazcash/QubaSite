@@ -2,28 +2,27 @@
 	Print
 \*------------------------------------*/
 
-* {
-	background: #ffffff;
-	color: #000000!important;
+*{
+	color: #000!important;
+	background: #fff;
 }
 
-html {
+html{
 	font: 100%/1.5 Arial, serif;
 }
 
 /**
  * Hide
  */
-.header,
-.footer {
+.header, .footer{
 	display: none;
 }
 
 /**
  * Make full-width
  */
-.unit {
+.unit{
+	width: 100%!important;
 	margin: 0!important;
 	padding: 0!important;
-	width: 100%!important;
 }

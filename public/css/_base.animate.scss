@@ -8,12 +8,12 @@
 	animation-fill-mode: both;
 }
 
-@keyframes fadeInLeft {
-	0% {
+@keyframes fadeInLeft{
+	0%{
 		opacity: 0;
 		transform: translateX(-20px);
 	}
-	100% {
+	100%{
 		opacity: 1;
 		transform: translateX(0);
 	}
@@ -25,24 +25,30 @@
 	animation-fill-mode: both;
 }
 
-@keyframes fadeInTop {
-	0% {
+@keyframes fadeInTop{
+	0%{
 		opacity: 0;
 		transform: translateY(-20px);
 	}
-	100% {
+	100%{
 		opacity: 1;
 		transform: translateY(0);
 	}
 }
 
 .bounce{
-    position: absolute;
-    animation: bounce 4s infinite;
+	position: absolute;
+	animation: bounce 4s infinite;
 }
 
-@keyframes bounce {
-    0%   { margin-bottom: 0px; }
-    50%  { margin-bottom: 30px; }
-    100% { margin-bottom: 0px; }
+@keyframes bounce{
+	0%{
+		margin-bottom: 0;
+	}
+	50%{
+		margin-bottom: 30px;
+	}
+	100%{
+		margin-bottom: 0;
+	}
 }

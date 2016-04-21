@@ -2,13 +2,13 @@
 	Page
 \*------------------------------------*/
 
-html {
-	color: $font-color;
-	font-size: $base-font-size;
+html{
 	font-family: $primary-font;
+	font-size: $base-font-size;
 	line-height: $base-line-height;
+	color: $font-color;
 }
 
-body {
+body{
 	background-color: $background-color;
 }

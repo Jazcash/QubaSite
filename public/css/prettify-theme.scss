@@ -1,142 +1,129 @@
 /* GitHub Theme */
-.prettyprint {
-  background: #fff;
-  font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
-  padding: 2.5rem 3rem;
-  font-size: 14px;
-  line-height: 1.6em;
-  -webkit-font-smoothing: antialiased;
+.prettyprint{
+	padding: 2.5rem 3rem;
+	font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+	line-height: 1.6em;
+	background: #fff;
 }
 
-.pln {
-  color: #333333;
+.pln{
+	color: #333;
 }
 
-@media screen {
-  .str {
-    color: #dd1144;
-  }
+@media screen{
+	.str{
+		color: #d14;
+	}
 
-  .kwd {
-    color: #333333;
-  }
+	.kwd{
+		color: #333;
+	}
 
-  .com {
-    color: #999988;
-  }
+	.com{
+		color: #998;
+	}
 
-  .typ {
-    color: #445588;
-  }
+	.typ{
+		color: #458;
+	}
 
-  .lit {
-    color: #445588;
-  }
+	.lit{
+		color: #458;
+	}
 
-  .pun {
-    color: #333333;
-  }
+	.pun{
+		color: #333;
+	}
 
-  .opn {
-    color: #333333;
-  }
+	.opn{
+		color: #333;
+	}
 
-  .clo {
-    color: #333333;
-  }
+	.clo{
+		color: #333;
+	}
 
-  .tag {
-    color: navy;
-  }
+	.tag{
+		color: navy;
+	}
 
-  .atn {
-    color: teal;
-  }
+	.atn{
+		color: teal;
+	}
 
-  .atv {
-    color: #dd1144;
-  }
+	.atv{
+		color: #d14;
+	}
 
-  .dec {
-    color: #333333;
-  }
+	.dec{
+		color: #333;
+	}
 
-  .var {
-    color: teal;
-  }
+	.var{
+		color: teal;
+	}
 
-  .fun {
-    color: #990000;
-  }
+	.fun{
+		color: #900;
+	}
 }
-@media print, projection {
-  .str {
-    color: #006600;
-  }
+@media print, projection{
+	.str{
+		color: #060;
+	}
 
-  .kwd {
-    color: #006;
-    font-weight: bold;
-  }
+	.kwd{
+		font-weight: bold;
+		color: #006;
+	}
 
-  .com {
-    color: #600;
-    font-style: italic;
-  }
+	.com{
+		font-style: italic;
+		color: #600;
+	}
 
-  .typ {
-    color: #404;
-    font-weight: bold;
-  }
+	.typ{
+		font-weight: bold;
+		color: #404;
+	}
 
-  .lit {
-    color: #004444;
-  }
+	.lit{
+		color: #044;
+	}
 
-  .pun, .opn, .clo {
-    color: #444400;
-  }
+	.pun, .opn, .clo{
+		color: #440;
+	}
 
-  .tag {
-    color: #006;
-    font-weight: bold;
-  }
+	.tag{
+		font-weight: bold;
+		color: #006;
+	}
 
-  .atn {
-    color: #440044;
-  }
+	.atn{
+		color: #404;
+	}
 
-  .atv {
-    color: #006600;
-  }
+	.atv{
+		color: #060;
+	}
 }
 /* Specify class=linenums on a pre to get line numbering */
-ol.linenums {
-  margin-top: 0;
-  margin-bottom: 0;
+ol.linenums{
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 /* IE indents via margin-left */
-li.L0,
-li.L1,
-li.L2,
-li.L3,
-li.L4,
-li.L5,
-li.L6,
-li.L7,
-li.L8,
-li.L9 {
-  /* */
+li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9{
+	/* */
 }
 
 /* Alternate shading for lines */
-li.L1,
-li.L3,
-li.L5,
-li.L7,
-li.L9 {
-  /* */
+li.L1, li.L3, li.L5, li.L7, li.L9{
+	/* */
 }
 
 /* My additional styles */
@@ -145,12 +132,12 @@ li.L9 {
 li.L5, li.L6, li.L7, li.L8
 { list-style-type: decimal !important }*/
 
-.prettyprint li {
-  margin-bottom: .3rem;
+.prettyprint li{
+	margin-bottom: 0.3rem;
 }
 
-pre.prettyprint {
-  border: 1px solid #eee;
-  border-radius: 4px;
-  padding: 1em;
+pre.prettyprint{
+	padding: 1em;
+	border: 1px solid #eee;
+	border-radius: 4px;
 }

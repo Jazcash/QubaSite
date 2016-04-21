@@ -2,30 +2,29 @@
 	Tables
 \*------------------------------------*/
 
-table {
+table{
 	margin-bottom: $spacing;
 }
 
-table th,
-table td {
+table th, table td{
 	padding: $spacing-small $spacing;
-	border-bottom: 1px solid #ccc;
-	text-align: left;
 	-webkit-font-smoothing: antialiased;
+	text-align: left;
+	border-bottom: 1px solid #ccc;
 }
 
-table th {
+table th{
 	border-width: 2px;
 }
 
-table tr:last-child td {
+table tr:last-child td{
 	border-bottom: none;
 }
 
-table tr:nth-child(even) {
+table tr:nth-child(even){
 	background: #eee;
 }
 
-table tbody tr:hover {
+table tbody tr:hover{
 	background: #f9f9f9;
 }

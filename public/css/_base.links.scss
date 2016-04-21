@@ -6,26 +6,26 @@ a{
 }
 
 .animatedLink{
-	color: $quba-red-dark;
 	position: relative;
-	transition: 0.3s ease;
 	text-decoration: none;
+	color: $quba-red-dark;
+	transition: 0.3s ease;
 	&:before{
-		content: "";
 		position: absolute;
+		bottom: -3px;
+		left: 0;
 		width: 100%;
 		height: 3px;
-		left: 0;
-		bottom: -3px;
+		content: "";
 		background: $quba-red-dark;
 	}
 	&:after{
-		content: "";
 		position: absolute;
+		bottom: -3px;
+		left: 0;
 		width: 0;
 		height: 3px;
-		left: 0;
-		bottom: -3px;
+		content: "";
 		background: $quba-red;
 		transition: 0.3s ease;
 	}
