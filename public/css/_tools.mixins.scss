@@ -172,3 +172,29 @@ Create a CSS transition
 		}
 	}
 }
+
+
+@mixin responsive-font($size){
+	@if $size == xl {
+
+	}
+
+	@if $size == l {
+
+	}
+
+	@if $size == m {
+		@include responsive(font-size, 1.1);
+		@include breakpoint(m){ font-size: $small; }
+	}
+
+	@if $size == s {
+		@include responsive(font-size, 0.9);
+		@include breakpoint(m){ font-size: $extra-small / 0.85; }
+	}
+
+	@if $size == xs {
+		@include responsive(font-size, 0.7);
+		@include breakpoint(m){ font-size: $extra-small; }
+	}
+}

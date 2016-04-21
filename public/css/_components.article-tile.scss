@@ -13,8 +13,8 @@
 		li{
 			display: flex;
 			width: 33.33%;
-			@include breakpoint(m){ width: 50%; }
-			@include breakpoint(s){ width: 100%; }
+			@include breakpoint(l){ width: 50%; }
+			@include breakpoint(m){ width: 100%; }
 			transition: .3s ease-in-out;
 			padding: $extra-small/2;
 			a{
@@ -31,7 +31,7 @@
 				.meta{
 					display: flex;
 					flex-direction: column;
-					padding: $small;
+					@include responsive(padding, 1);
 					.date{
 						color: #fff;
 						text-transform: uppercase;

@@ -204,6 +204,7 @@ if ($(".block--blogpost-meta").length > 0){
 	}
 }
 
+// estimated time to read for blog articles
 var wordcount = $(".block--blogpost-content").text().split(" ").length;
 $(".wordcount").text(wordcount);
 $(".esttime").text(Math.round(wordcount / 200));

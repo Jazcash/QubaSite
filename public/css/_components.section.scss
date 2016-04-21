@@ -5,6 +5,7 @@
 	justify-content: center;
 	align-items: center;
 	@include responsive(padding, 2.9);
+	@include breakpoint(s){ padding-left: 20px; padding-right: 20px; }
 
 	hr{
 		height: 6px;
@@ -33,6 +34,7 @@
 	h3{
 		width: 100%;
 		@include responsive(font-size, 2);
+		@include breakpoint(s){ font-size: $medium; }
 		& + hr{
 			@include responsive(margin-top, 2);
 			@include responsive(margin-bottom, 1);
@@ -41,17 +43,16 @@
 	h4{
 		width: 100%;
 		@include responsive(font-size, 1.25);
-		@include breakpoint(m){ font-size: $small/1.2; }
 	}
 	h5{
 		width: 100%;
-		@include responsive(font-size, 0.8);
+		@include responsive-font(s);
 	}
 	p{
 		width: 100%;
 		margin: 0;
-		@include responsive(font-size, 1.1);
-		@include responsive(line-height, 1.35);
+		@include responsive-font(m);
+		line-height: 110%;
 	}
 
 	/*
@@ -92,6 +93,7 @@
 		flex-wrap: wrap;
 		flex-direction: column;
 		text-align: center;
+		@include breakpoint(s){ width: 100%; }
 	}
 
 	ul.work li, .grid-item{
@@ -237,9 +239,6 @@
 			}
 			p{
 				margin: 0;
-				@include breakpoint(s){
-					font-size: $extra-small;
-				}
 				width: 100%;
 			}
 			video{
@@ -283,20 +282,9 @@
 				z-index: -1;
 				background-color: rgba(113,82,60, 0.8);
 			}
-			h2{
+			h2, p{
 				width: 60%;
-			}
-			p{
-				width: 60%;
-			}
-			@include breakpoint(s){
-				h2{
-					font-size: $medium;
-				}
-				p{
-					width: 100%;
-					font-size: $extra-small;
-				}
+				@include breakpoint(s){ width: 80%; }
 			}
 			.frames{
 				.frame{
@@ -384,25 +372,9 @@
 			background-position: center center;
 			background-repeat: none;
 			align-items: flex-start;
-			h2{
-				color: $light-orchid;
+			h2, p{
 				width: 60%;
-			}
-			hr{
-				background: $light-orchid;
-			}
-			p{
-				color: $light-orchid;
-				width: 60%;
-			}
-			@include breakpoint(s){
-				h2{
-					font-size: $medium;
-				}
-				p{
-					width: 100%;
-					font-size: $extra-small;
-				}
+				@include breakpoint(s){ width: 80%; }
 			}
 			video{
 				position: absolute;
@@ -450,6 +422,7 @@
 		}
 
 		&-values{
+			@include breakpoint(s){ padding-left: $extra-small; padding-right: $extra-small }
 			h2{
 				margin: 0;
 				color: #fff;
@@ -457,14 +430,13 @@
 			h3{
 				@include responsive(font-size, 1);
 				margin-bottom: 5px;
-				margin-top: 25px;
 				color: #fff;
 			}
 			h2, h3, h4, h5, p{
 				text-align: center;
 			}
 			p{
-				@include responsive(font-size, 0.7);
+				@include responsive-font(xs);
 				line-height: 1.2;
 				color: $beige;
 			}
@@ -477,6 +449,7 @@
 				li{
 					width: 50%;
 					padding: $large;
+					@include breakpoint(s){ padding: $extra-small; }
 				}
 			}
 		}
@@ -509,7 +482,7 @@
 				@include responsive(padding-right, 2);
 			}
 			li{
-				@include responsive(font-size, 0.9);
+				@include responsive-font(s);
 				@include responsive(margin-bottom, 0.5);
 				list-style-type: none;
 				&:before{
@@ -518,10 +491,8 @@
 					margin-left: -15px;
 				}
 			}
-			@include breakpoint(m){
-				ul{
-					margin-top: $small;
-				}
+			@include breakpoint(s){
+				ul{ margin-top: $large; }
 			}
 		}
 	}
@@ -555,7 +526,7 @@
 			align-items: center;
 			li{
 				list-style-type: none;
-				margin: $medium;
+				@include responsive(margin, 1);
 				img{
 					@include responsive(max-height, 2.5);
 					image-rendering: -moz-crisp-edges;
