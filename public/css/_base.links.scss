@@ -7,9 +7,10 @@ a{
 
 .animatedLink{
 	position: relative;
+	display: inline-block;
 	text-decoration: none;
 	color: $quba-red-dark;
-	transition: 0.3s ease;
+	transition: 0.3s ease-in-out;
 	&:before{
 		position: absolute;
 		bottom: -3px;
@@ -27,7 +28,7 @@ a{
 		height: 3px;
 		content: "";
 		background: $quba-red;
-		transition: 0.3s ease;
+		transition: 0.3s ease-in-out;
 	}
 	&:hover, &:active, &:focus{
 		text-decoration: none;

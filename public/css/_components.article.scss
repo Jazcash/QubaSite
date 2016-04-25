@@ -22,7 +22,7 @@
 		font-family: $primary-font-light;
 		line-height: 140%;
 		color: $quba-red-dark;
-		@include responsive-font(s);
+		@include responsive-font(xs);
 		@include responsive(margin-bottom, 0.8);
 		a{
 			color: $quba-red;
@@ -36,10 +36,7 @@
 		font-family: $primary-font-light;
 		line-height: 120%;
 		color: $quba-red-dark;
-		@include responsive(font-size, 0.7);
-		@include breakpoint(m){
-			font-size: $extra-small;
-		}
+		@include responsive-font(xs);
 		@include responsive(margin-bottom, 0.35);
 	}
 	figure{

@@ -16,7 +16,7 @@ var config = {
     app: {
       name: 'testing'
     },
-    port: 3000,
+    port: 3001,
   },
 
   production: {
@@ -24,7 +24,7 @@ var config = {
     app: {
       name: 'testing'
     },
-    port: 3000,
+    port: 3002,
   }
 };
 

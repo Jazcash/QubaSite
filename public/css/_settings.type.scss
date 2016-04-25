@@ -4,40 +4,48 @@
 
 /* FONT PATH
  * -------------------------- */
-@font-face {
-  font-family: 'CalibreMedium';
-  src: url('/fonts/Calibre-Medium/Calibre-Medium.eot');
-  src: url('/fonts/Calibre-Medium/Calibre-Medium.eot?#iefix') format('embedded-opentype'), url('/fonts/Calibre-Medium/Calibre-Medium.woff')
-   format('woff'),  url('/fonts/Calibre-Medium/Calibre-Medium.ttf') format('truetype'), url('/fonts/Calibre-Medium/Calibre-Medium.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
+@font-face{
+	font-family: "CalibreMedium";
+	src: url("/fonts/Calibre-Medium/Calibre-Medium.eot");
+	src: url("/fonts/Calibre-Medium/Calibre-Medium.eot?#iefix") format("embedded-opentype"),
+	url("/fonts/Calibre-Medium/Calibre-Medium.woff") format("woff"),
+	url("/fonts/Calibre-Medium/Calibre-Medium.ttf") format("truetype"),
+	url("/fonts/Calibre-Medium/Calibre-Medium.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
 }
 
-@font-face {
-  font-family: 'CalibreSemiBold';
-  src: url('/fonts/Calibre-SemiBold/Calibre-SemiBold.eot');
-  src: url('/fonts/Calibre-SemiBold/Calibre-SemiBold.eot?#iefix') format('embedded-opentype'), url('/fonts/Calibre-SemiBold/Calibre-SemiBold.woff')
-   format('woff'),  url('/fonts/Calibre-SemiBold/Calibre-SemiBold.ttf') format('truetype'), url('/fonts/Calibre-SemiBold/Calibre-SemiBold.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
+@font-face{
+	font-family: "CalibreSemiBold";
+	src: url("/fonts/Calibre-SemiBold/Calibre-SemiBold.eot");
+	src: url("/fonts/Calibre-SemiBold/Calibre-SemiBold.eot?#iefix") format("embedded-opentype"),
+	url("/fonts/Calibre-SemiBold/Calibre-SemiBold.woff") format("woff"),
+	url("/fonts/Calibre-SemiBold/Calibre-SemiBold.ttf") format("truetype"),
+	url("/fonts/Calibre-SemiBold/Calibre-SemiBold.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
 }
 
-@font-face {
-  font-family: 'CalibreMediumItalic';
-  src: url('/fonts/Calibre-MediumItalic/Calibre-MediumItalic.eot');
-  src: url('/fonts/Calibre-MediumItalic/Calibre-MediumItalic.eot?#iefix') format('embedded-opentype'), url('/fonts/Calibre-MediumItalic/Calibre-MediumItalic.woff')
-   format('woff'),  url('/fonts/Calibre-MediumItalic/Calibre-MediumItalic.ttf') format('truetype'), url('/fonts/Calibre-MediumItalic/Calibre-MediumItalic.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
+@font-face{
+	font-family: "CalibreMediumItalic";
+	src: url("/fonts/Calibre-MediumItalic/Calibre-MediumItalic.eot");
+	src: url("/fonts/Calibre-MediumItalic/Calibre-MediumItalic.eot?#iefix") format("embedded-opentype"),
+	url("/fonts/Calibre-MediumItalic/Calibre-MediumItalic.woff") format("woff"),
+	url("/fonts/Calibre-MediumItalic/Calibre-MediumItalic.ttf") format("truetype"),
+	url("/fonts/Calibre-MediumItalic/Calibre-MediumItalic.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
 }
 
-@font-face {
-  font-family: 'CalibreRegular';
-  src: url('/fonts/Calibre-Regular/Calibre-Regular.eot');
-  src: url('/fonts/Calibre-Regular/Calibre-Regular.eot?#iefix') format('embedded-opentype'), url('/fonts/Calibre-Regular/Calibre-Regular.woff')
-   format('woff'),  url('/fonts/Calibre-Regular/Calibre-Regular.ttf') format('truetype'), url('/fonts/Calibre-Regular/Calibre-Regular.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
+@font-face{
+	font-family: "CalibreRegular";
+	src: url("/fonts/Calibre-Regular/Calibre-Regular.eot");
+	src: url("/fonts/Calibre-Regular/Calibre-Regular.eot?#iefix") format("embedded-opentype"),
+	url("/fonts/Calibre-Regular/Calibre-Regular.woff") format("woff"),
+	url("/fonts/Calibre-Regular/Calibre-Regular.ttf") format("truetype"),
+	url("/fonts/Calibre-Regular/Calibre-Regular.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
 }
 
 $primary-font: "CalibreMedium", Helvetica, Arial, sans-serif;
@@ -45,20 +53,17 @@ $primary-font-light: "CalibreRegular", Helvetica, Arial, sans-serif;
 $primary-font-bold: "CalibreSemiBold", Helvetica, Arial, sans-serif;
 $primary-font-italic: "CalibreMediumItalic", Helvetica, Arial, sans-serif;
 $secondary-font: Georgia, Times, "Times New Roman", serif;
-$alt-font: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
-
-$base-font-size:    16px;
-$base-line-height:  24px;
-
-$h1-size:           36px;
-$h2-size:           30px;
-$h3-size:           24px;
-$h4-size:           20px;
-$h5-size:           16px;
-$h6-size:           14px;
-
-$extra-large:       64px;
-$large:             48px;
-$medium:            36px;
-$small:             24px;
-$extra-small:       16px;
+$alt-font: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
+$base-font-size: 16px;
+$base-line-height: 24px;
+$h1-size: 36px;
+$h2-size: 30px;
+$h3-size: 24px;
+$h4-size: 20px;
+$h5-size: 16px;
+$h6-size: 14px;
+$extra-large: 64px;
+$large: 48px;
+$medium: 36px;
+$small: 24px;
+$extra-small: 16px;

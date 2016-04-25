@@ -37,7 +37,7 @@
 		width: 100%;
 		@include responsive(font-size, 2);
 		@include breakpoint(s){
-			font-size: $medium;
+			font-size: $small;
 		}
 		& + hr{
 			@include responsive(margin-top, 2);
@@ -53,25 +53,22 @@
 	}
 	h5{
 		width: 100%;
-		@include responsive(font-size, 1.25);
-		@include breakpoint(s){
-			font-size: $small;
-		}
+		@include responsive-font(s);
 	}
 	p{
 		width: 100%;
 		margin: 0;
 		line-height: 110%;
-		@include responsive-font(m);
+		@include responsive-font(ms);
 	}
 	/*
-	.88b  d88. d888888b .d8888.  .o88b.
-	88'YbdP`88   `88'   88'  YP d8P  Y8
-	88  88  88    88    `8bo.   8P
-	88  88  88    88      `Y8b. 8b
-	88  88  88   .88.   db   8D Y8b  d8
-	YP  YP  YP Y888888P `8888Y'  `Y88P'
-*/
+		.88b  d88. d888888b .d8888.  .o88b.
+		88'YbdP`88   `88'   88'  YP d8P  Y8
+		88  88  88    88    `8bo.   8P
+		88  88  88    88      `Y8b. 8b
+		88  88  88   .88.   db   8D Y8b  d8
+		YP  YP  YP Y888888P `8888Y'  `Y88P'
+	*/
 	&--fullscreen{
 		display: flex;
 		flex-direction: column;
@@ -99,7 +96,7 @@
 		width: 75%;
 		height: 100%;
 		text-align: center;
-		@include breakpoint(s){
+		@include breakpoint(m){
 			width: 100%;
 		}
 	}
@@ -160,58 +157,77 @@
 			}
 		}
 	}
-	&.logos{
-		ul{
+	ul.logos{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		li{
 			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			justify-content: space-between;
-			width: 100%;
-			margin: 0;
-			padding: 0;
-			list-style-type: none;
-			li{
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				width: 25%;
-				margin: auto;
-				margin-bottom: $small;
-				@include breakpoint(m){
-					width: 50%;
-				}
-				img{
-					transition: opacity 0.3s ease;
-					@include responsive(max-height, 1.5);
-
-					-webkit-backface-visibility: hidden;
-				}
-				img[src*="chatsworth"]{
-					@include responsive(max-height, 2);
-				}
+			align-items: center;
+			justify-content: center;
+			width: 25%;
+			margin: $extra-small auto;
+			@include breakpoint(m){
+				width: 50%;
 			}
-			&:hover{
-				a{
-					img{
-						opacity: 0.5;
-					}
-					&:hover{
-						img{
-							opacity: 1;
-						}
-					}
+			img{
+				-webkit-backface-visibility: hidden;
+				transition: opacity 0.3s ease;
+				@include responsive(max-height, 1.5);
+			}
+		}
+	}
+	&--testimony{
+		blockquote{
+			width: 80%;
+			font-style: italic;
+			line-height: 130%;
+			text-align: center;
+			@include responsive(font-size, 0.9);
+			@include breakpoint(s){
+				font-size: $extra-small;
+			}
+			footer{
+				margin-top: $medium;
+				font-family: $primary-font-light;
+				font-style: normal;
+				@include responsive(font-size, 0.7);
+				@include breakpoint(s){
+					font-size: $extra-small;
 				}
 			}
 		}
 	}
+	&--cases{
+		text-align: center;
+		background: #fff;
+		ul.work{
+			display: flex;
+			width: 100%;
+			height: 100%;
+			@include responsive(margin-top, 1);
+			@include breakpoint(m){
+				flex-direction: column;
+			}
+			li{
+				width: 33.33%;
+				margin: $small;
+			}
+		}
+	}
 	/*
-	db   db  .d88b.  .88b  d88. d88888b d8888b.  .d8b.   d888b  d88888b
-	88   88 .8P  Y8. 88'YbdP`88 88'     88  `8D d8' `8b 88' Y8b 88'
-	88ooo88 88    88 88  88  88 88ooooo 88oodD' 88ooo88 88      88ooooo
-	88~~~88 88    88 88  88  88 88~~~~~ 88~~~   88~~~88 88  ooo 88~~~~~
-	88   88 `8b  d8' 88  88  88 88.     88      88   88 88. ~8~ 88.
-	YP   YP  `Y88P'  YP  YP  YP Y88888P 88      YP   YP  Y888P  Y88888P
-*/
+		db   db  .d88b.  .88b  d88. d88888b d8888b.  .d8b.   d888b  d88888b
+		88   88 .8P  Y8. 88'YbdP`88 88'     88  `8D d8' `8b 88' Y8b 88'
+		88ooo88 88    88 88  88  88 88ooooo 88oodD' 88ooo88 88      88ooooo
+		88~~~88 88    88 88  88  88 88~~~~~ 88~~~   88~~~88 88  ooo 88~~~~~
+		88   88 `8b  d8' 88  88  88 88.     88      88   88 88. ~8~ 88.
+		YP   YP  `Y88P'  YP  YP  YP Y88888P 88      YP   YP  Y888P  Y88888P
+	*/
 	&--hp{
 		h2{
 			& + hr{
@@ -231,14 +247,9 @@
 			background-position: center center;
 			background-size: cover;
 			&:after{
-				position: absolute;
 				z-index: -1;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				content: "";
 				background: rgba(70, 15, 19, 0.7);
+				@extend .fillArea;
 			}
 			hr{
 				height: 6px;
@@ -265,29 +276,35 @@
 			left: 0;
 			width: 100%;
 			height: 100vh;
+			@include breakpoint(m){
+				position: static;
+				height: auto;
+			}
 			@extend .block.logos;
 			h3{
 				text-align: center;
 				@include responsive(margin-bottom, 1.5);
 			}
+			ul.logos li img[src*="chatsworth"]{
+				@include responsive(max-height, 2);
+			}
 		}
-		&-current-clients-gap{
+		&-gap{
 			height: 60vh;
 			pointer-events: none;
+			@include breakpoint(m){
+				display: none;
+			}
 		}
 		&-dexterity{
 			z-index: 10;
 			align-items: stretch;
 			background-color: rgba(113,82,60, 1);
 			&:after{
-				position: absolute;
 				z-index: -1;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
 				content: "";
 				background-color: rgba(113,82,60, 0.8);
+				@extend .fillArea;
 			}
 			h2, p{
 				width: 60%;
@@ -297,14 +314,10 @@
 			}
 			.frames{
 				.frame{
-					position: absolute;
 					z-index: -1;
-					top: 0;
-					left: 0;
-					width: 100%;
-					height: 100%;
 					opacity: 1;
 					background-size: cover;
+					@extend .fillArea;
 				}
 			}
 		}
@@ -330,6 +343,9 @@
 				position: fixed;
 				z-index: -1;
 				width: 100%;
+				@include breakpoint(m){
+					position: static;
+				}
 			}
 			.show{
 				top: 0;
@@ -352,10 +368,6 @@
 				}
 			}
 		}
-		&-our-partners-gap{
-			height: 60vh;
-			padding: 0;
-		}
 		&-our-partners{
 			position: fixed;
 			z-index: -10;
@@ -368,7 +380,10 @@
 			width: 100%;
 			max-width: 100%;
 			height: 100vh;
-			@extend .block.logos;
+			@include breakpoint(m){
+				position: static;
+				height: auto;
+			}
 			h3{
 				text-align: center;
 				@include responsive(margin-bottom, 1.5);
@@ -381,6 +396,11 @@
 			background-repeat: none;
 			background-position: center center;
 			background-size: cover;
+			&:before{
+				@extend .fillArea;
+				background-color: rgba(70, 15, 19, 1);
+				z-index: -2;
+			}
 			h2, p{
 				width: 60%;
 				@include breakpoint(s){
@@ -395,18 +415,20 @@
 				min-width: 100%;
 				min-height: 100%;
 				transform: translate(-50%,-50%);
+				z-index: -1;
 			}
 		}
 	}
 	/*
-	 .d8b.  d8888b.  .d88b.  db    db d888888b
-	d8' `8b 88  `8D .8P  Y8. 88    88 `~~88~~'
-	88ooo88 88oooY' 88    88 88    88    88
-	88~~~88 88~~~b. 88    88 88    88    88
-	88   88 88   8D `8b  d8' 88b  d88    88
-	YP   YP Y8888P'  `Y88P'  ~Y8888P'    YP
-*/
+		 .d8b.  d8888b.  .d88b.  db    db d888888b
+		d8' `8b 88  `8D .8P  Y8. 88    88 `~~88~~'
+		88ooo88 88oooY' 88    88 88    88    88
+		88~~~88 88~~~b. 88    88 88    88    88
+		88   88 88   8D `8b  d8' 88b  d88    88
+		YP   YP Y8888P'  `Y88P'  ~Y8888P'    YP
+	*/
 	&--about{
+		display: block;
 		&-building{
 			.youtubePlayer{
 				position: absolute;
@@ -467,13 +489,13 @@
 		}
 	}
 	/*
-	.d8888. d88888b d8888b. db    db d888888b  .o88b. d88888b .d8888.
-	88'  YP 88'     88  `8D 88    88   `88'   d8P  Y8 88'     88'  YP
-	`8bo.   88ooooo 88oobY' Y8    8P    88    8P      88ooooo `8bo.
-	  `Y8b. 88~~~~~ 88`8b   `8b  d8'    88    8b      88~~~~~   `Y8b.
-	db   8D 88.     88 `88.  `8bd8'    .88.   Y8b  d8 88.     db   8D
-	`8888Y' Y88888P 88   YD    YP    Y888888P  `Y88P' Y88888P `8888Y'
-*/
+		.d8888. d88888b d8888b. db    db d888888b  .o88b. d88888b .d8888.
+		88'  YP 88'     88  `8D 88    88   `88'   d8P  Y8 88'     88'  YP
+		`8bo.   88ooooo 88oobY' Y8    8P    88    8P      88ooooo `8bo.
+		  `Y8b. 88~~~~~ 88`8b   `8b  d8'    88    8b      88~~~~~   `Y8b.
+		db   8D 88.     88 `88.  `8bd8'    .88.   Y8b  d8 88.     db   8D
+		`8888Y' Y88888P 88   YD    YP    Y888888P  `Y88P' Y88888P `8888Y'
+	*/
 	&--services{
 		&-first{
 			flex-direction: column;
@@ -496,7 +518,7 @@
 			li{
 				margin-left: 15px;
 				list-style-type: none;
-				@include responsive-font(s);
+				@include responsive-font(xs);
 				@include responsive(margin-bottom, 0.5);
 				&:before{
 					position: absolute;
@@ -507,13 +529,13 @@
 		}
 	}
 	/*
-	d888888b d88888b  .o88b. db   db d8b   db  .d88b.  db       .d88b.   d888b  db    db
-	`~~88~~' 88'     d8P  Y8 88   88 888o  88 .8P  Y8. 88      .8P  Y8. 88' Y8b `8b  d8'
-	   88    88ooooo 8P      88ooo88 88V8o 88 88    88 88      88    88 88       `8bd8'
-	   88    88~~~~~ 8b      88~~~88 88 V8o88 88    88 88      88    88 88  ooo    88
-	   88    88.     Y8b  d8 88   88 88  V888 `8b  d8' 88booo. `8b  d8' 88. ~8~    88
-	   YP    Y88888P  `Y88P' YP   YP VP   V8P  `Y88P'  Y88888P  `Y88P'   Y888P     YP
-*/
+		d888888b d88888b  .o88b. db   db d8b   db  .d88b.  db       .d88b.   d888b  db    db
+		`~~88~~' 88'     d8P  Y8 88   88 888o  88 .8P  Y8. 88      .8P  Y8. 88' Y8b `8b  d8'
+		   88    88ooooo 8P      88ooo88 88V8o 88 88    88 88      88    88 88       `8bd8'
+		   88    88~~~~~ 8b      88~~~88 88 V8o88 88    88 88      88    88 88  ooo    88
+		   88    88.     Y8b  d8 88   88 88  V888 `8b  d8' 88booo. `8b  d8' 88. ~8~    88
+		   YP    Y88888P  `Y88P' YP   YP VP   V8P  `Y88P'  Y88888P  `Y88P'   Y888P     YP
+	*/
 	&--tech{
 		&-first{
 			flex-direction: column;
@@ -521,7 +543,6 @@
 		}
 		&:not(.block--tech-first){
 			align-items: flex-start;
-			//min-height: 100vh;
 			justify-content: flex-start;
 		}
 		.tech-logos{
@@ -537,23 +558,22 @@
 				@include responsive(margin, 1);
 				img{
 					-ms-interpolation-mode: nearest-neighbor;
-					@include responsive(max-height, 2.5);
-
 					image-rendering: -moz-crisp-edges;
 					image-rendering:   -o-crisp-edges;
 					image-rendering: -webkit-optimize-contrast;
+					@include responsive(max-height, 2.5);
 				}
 			}
 		}
 	}
 	/*
-	db   d8b   db  .d88b.  d8888b. db   dD
-	88   I8I   88 .8P  Y8. 88  `8D 88 ,8P'
-	88   I8I   88 88    88 88oobY' 88,8P
-	Y8   I8I   88 88    88 88`8b   88`8b
-	`8b d8'8b d8' `8b  d8' 88 `88. 88 `88.
-	 `8b8' `8d8'   `Y88P'  88   YD YP   YD
-*/
+		db   d8b   db  .d88b.  d8888b. db   dD
+		88   I8I   88 .8P  Y8. 88  `8D 88 ,8P'
+		88   I8I   88 88    88 88oobY' 88,8P
+		Y8   I8I   88 88    88 88`8b   88`8b
+		`8b d8'8b d8' `8b  d8' 88 `88. 88 `88.
+		 `8b8' `8d8'   `Y88P'  88   YD YP   YD
+	*/
 	&--work{
 		background: #fff;
 		h1{
@@ -600,13 +620,13 @@
 		}
 	}
 	/*
-	 .o88b.  .d8b.  .d8888. d88888b   .d8888. d888888b db    db d8888b. db    db
-	d8P  Y8 d8' `8b 88'  YP 88'       88'  YP `~~88~~' 88    88 88  `8D `8b  d8'
-	8P      88ooo88 `8bo.   88ooooo   `8bo.      88    88    88 88   88  `8bd8'
-	8b      88~~~88   `Y8b. 88~~~~~     `Y8b.    88    88    88 88   88    88
-	Y8b  d8 88   88 db   8D 88.       db   8D    88    88b  d88 88  .8D    88
-	 `Y88P' YP   YP `8888Y' Y88888P   `8888Y'    YP    ~Y8888P' Y8888D'    YP
-*/
+		 .o88b.  .d8b.  .d8888. d88888b   .d8888. d888888b db    db d8888b. db    db
+		d8P  Y8 d8' `8b 88'  YP 88'       88'  YP `~~88~~' 88    88 88  `8D `8b  d8'
+		8P      88ooo88 `8bo.   88ooooo   `8bo.      88    88    88 88   88  `8bd8'
+		8b      88~~~88   `Y8b. 88~~~~~     `Y8b.    88    88    88 88   88    88
+		Y8b  d8 88   88 db   8D 88.       db   8D    88    88b  d88 88  .8D    88
+		 `Y88P' YP   YP `8888Y' Y88888P   `8888Y'    YP    ~Y8888P' Y8888D'    YP
+	*/
 	&--casestudy{
 		&-first{
 			h1{
@@ -623,53 +643,15 @@
 		&-image{
 			padding: 0;
 		}
-		&-testimony{
-			blockquote{
-				width: 80%;
-				font-style: italic;
-				line-height: 130%;
-				text-align: center;
-				@include responsive(font-size, 0.9);
-				@include breakpoint(s){
-					font-size: $extra-small;
-				}
-				footer{
-					margin-top: $medium;
-					font-family: $primary-font-light;
-					font-style: normal;
-					@include responsive(font-size, 0.7);
-					@include breakpoint(s){
-						font-size: $extra-small;
-					}
-				}
-			}
-		}
-		&-cases{
-			text-align: center;
-			background: #fff;
-			ul.work{
-				display: flex;
-				width: 100%;
-				height: 100%;
-				@include responsive(margin-top, 1);
-				@include breakpoint(m){
-					flex-direction: column;
-				}
-				li{
-					width: 33.33%;
-					margin: $small;
-				}
-			}
-		}
 	}
 	/*
-	d8888b. db       .d88b.   d888b
-	88  `8D 88      .8P  Y8. 88' Y8b
-	88oooY' 88      88    88 88
-	88~~~b. 88      88    88 88  ooo
-	88   8D 88booo. `8b  d8' 88. ~8~
-	Y8888P' Y88888P  `Y88P'   Y888P
-*/
+		d8888b. db       .d88b.   d888b
+		88  `8D 88      .8P  Y8. 88' Y8b
+		88oooY' 88      88    88 88
+		88~~~b. 88      88    88 88  ooo
+		88   8D 88booo. `8b  d8' 88. ~8~
+		Y8888P' Y88888P  `Y88P'   Y888P
+	*/
 	&--blog-overview{
 		background: #fff;
 		h1{
@@ -686,8 +668,7 @@
 				a{
 					display: inline-block;
 					margin-top: $extra-small/2;
-					padding: 10px;
-					padding-top: $extra-small;
+					padding: $extra-small $extra-small 10px $extra-small;
 					text-decoration: none;
 					color: $quba-red-dark;
 					&:hover, &:focus, &:active, &.active{
@@ -699,19 +680,19 @@
 		}
 	}
 	/*
-	d8888b. db       .d88b.   d888b    d8888b.  .d88b.  .d8888. d888888b
-	88  `8D 88      .8P  Y8. 88' Y8b   88  `8D .8P  Y8. 88'  YP `~~88~~'
-	88oooY' 88      88    88 88        88oodD' 88    88 `8bo.      88
-	88~~~b. 88      88    88 88  ooo   88~~~   88    88   `Y8b.    88
-	88   8D 88booo. `8b  d8' 88. ~8~   88      `8b  d8' db   8D    88
-	Y8888P' Y88888P  `Y88P'   Y888P    88       `Y88P'  `8888Y'    YP
-*/
+		d8888b. db       .d88b.   d888b    d8888b.  .d88b.  .d8888. d888888b
+		88  `8D 88      .8P  Y8. 88' Y8b   88  `8D .8P  Y8. 88'  YP `~~88~~'
+		88oooY' 88      88    88 88        88oodD' 88    88 `8bo.      88
+		88~~~b. 88      88    88 88  ooo   88~~~   88    88   `Y8b.    88
+		88   8D 88booo. `8b  d8' 88. ~8~   88      `8b  d8' db   8D    88
+		Y8888P' Y88888P  `Y88P'   Y888P    88       `Y88P'  `8888Y'    YP
+	*/
 	&--blogpost{
 		padding-bottom: 0;
 		background: #fff;
 		@include responsive(padding-left, 5);
 		@include responsive(padding-right, 5);
-		@include breakpoint(s){
+		@include breakpoint(xl){
 			padding-right: $large;
 			padding-left: $large;
 		}
@@ -767,7 +748,7 @@
 				}
 			}
 			hr{
-				width: 15px;
+				width: $extra-small;
 				height: 2px;
 				margin-bottom: 8px;
 				background: $quba-red-dark;
@@ -796,13 +777,13 @@
 		}
 	}
 	/*
-	 .o88b.  .d88b.  d8b   db d888888b  .d8b.   .o88b. d888888b
-	d8P  Y8 .8P  Y8. 888o  88 `~~88~~' d8' `8b d8P  Y8 `~~88~~'
-	8P      88    88 88V8o 88    88    88ooo88 8P         88
-	8b      88    88 88 V8o88    88    88~~~88 8b         88
-	Y8b  d8 `8b  d8' 88  V888    88    88   88 Y8b  d8    88
-	 `Y88P'  `Y88P'  VP   V8P    YP    YP   YP  `Y88P'    YP
-*/
+		 .o88b.  .d88b.  d8b   db d888888b  .d8b.   .o88b. d888888b
+		d8P  Y8 .8P  Y8. 888o  88 `~~88~~' d8' `8b d8P  Y8 `~~88~~'
+		8P      88    88 88V8o 88    88    88ooo88 8P         88
+		8b      88    88 88 V8o88    88    88~~~88 8b         88
+		Y8b  d8 `8b  d8' 88  V888    88    88   88 Y8b  d8    88
+		 `Y88P'  `Y88P'  VP   V8P    YP    YP   YP  `Y88P'    YP
+	*/
 	&--contact{
 		align-items: flex-start;
 		color: $quba-red-dark;
@@ -817,6 +798,67 @@
 		p{
 			line-height: 115%;
 			@include responsive-font(s);
+		}
+	}
+	/*
+		db       .d8b.  d8b   db d8888b. d888888b d8b   db  d888b
+		88      d8' `8b 888o  88 88  `8D   `88'   888o  88 88' Y8b
+		88      88ooo88 88V8o 88 88   88    88    88V8o 88 88
+		88      88~~~88 88 V8o88 88   88    88    88 V8o88 88  ooo
+		88booo. 88   88 88  V888 88  .8D   .88.   88  V888 88. ~8~
+		Y88888P YP   YP VP   V8P Y8888D' Y888888P VP   V8P  Y888P
+	*/
+	&--landing{
+		&-clients{
+			ul.logos{
+				@include responsive(margin-top, 2);
+				li img[src*="kodak"]{
+					@include responsive(max-height, 2);
+				}
+			}
+		}
+		&-features{
+			ul{
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				li{
+					width: 45%;
+					list-style-type: disc;
+					font-family: $primary-font-light;
+					line-height: 120%;
+					@include responsive-font(xs);
+					@include responsive(margin-top, 1.5);
+					&:nth-child(even){
+						text-align: right;
+						direction: rtl;
+					}
+				}
+			}
+		}
+		&-content{
+			@extend .content;
+		}
+		&-form{
+			.field-grid{
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				width: 100%;
+				input{
+					width: calc(50% - 32px);
+					margin: $extra-small 0;
+				}
+			}
+			textarea{
+				width: 100%;
+				max-width: 100%;
+			}
+			input[type="button"]{
+				align-self: flex-start;
+				@include responsive(margin-top, 0.5);
+			}
 		}
 	}
 }

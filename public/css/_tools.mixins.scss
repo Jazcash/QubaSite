@@ -172,7 +172,7 @@ Create a CSS transition
 			@extend .fillArea;
 		}
 	}
-	.block--casestudy-testimony{
+	&.block--testimony{
 		background-color: $backgroundColour;
 		blockquote{
 			color: #fff;
@@ -201,6 +201,12 @@ Create a CSS transition
 		@include responsive(font-size, 1.1);
 		@include breakpoint(m){
 			font-size: 24px;
+		}
+	}
+	@if $size == ms{
+		@include responsive(font-size, 1);
+		@include breakpoint(m){
+			font-size: 22px;
 		}
 	}
 	@if $size == s{

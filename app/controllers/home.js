@@ -58,3 +58,9 @@ router.get("/contact", function(req, res, next){
 		title: "Quba Site | Contact",
 	})
 });
+
+router.get("/landing", function(req, res, next){
+	res.render("landing", {
+		title: "Quba Site | Landing",
+	})
+});

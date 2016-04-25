@@ -47,7 +47,15 @@ gulp.task('images', function(){
 				quality: 70
 			}
 		}))
-		.pipe(gulp.dest('./public/img/sections/compressedJpgs'))
+		.pipe(gulp.dest('./public/img/sections/compressedJpgs'));
+
+	gulp.src('./public/img/tiles/*.jpg')
+		.pipe(responsive({
+			'*.jpg': {
+				quality: 70
+			}
+		}))
+		.pipe(gulp.dest('./public/img/tiles/compressedJpgs'));
 });
 
 gulp.task('watch', function() {

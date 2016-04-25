@@ -9,6 +9,7 @@
 	color: #fff;
 	border: 3px solid #fff;
 	transition: 0.3s ease;
+	display: inline-block;
 	&:after{
 		position: absolute;
 		z-index: -1;
